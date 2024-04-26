@@ -91,23 +91,18 @@ def code_file(file_path):
         quit()
     
 def decode_file(file_path):
-    # try:
-        with open(file_path, encoding='utf-8') as file:
-            txt_data = file.read()
-            word_list = list(txt_data)
-            decoded_word = ""
-        for decoded_word in word_list:
-            for word in list(KEY_OF_WORD):
-                if decoded_word in KEY_OF_WORD[word]:
-                    decoded_word += word
+    try:
+        with open(file_path, encoding='utf-8') as f:
+            txt_data = f.read()
+            txt_data = decoded_message(txt_data)
+            decoded_word = txt_data
             
-        print(decoded_word)
         with open(file_path, "w", encoding='utf-8') as write_code:
             write_code.write(decoded_word)
         print(f"File name {file_path} has now been decrypted.")
-    # except:
-    #     print('\nERROR_\n')
-    #     quit()
+    except:
+        print('\nERROR_\n')
+        quit()
     
     
 with open(r"E:\vscode\Python\passwords.txt", encoding='utf-8') as file:
