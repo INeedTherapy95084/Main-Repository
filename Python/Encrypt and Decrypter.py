@@ -165,6 +165,4 @@ def main(PASSWORD):
             continue
 
 PASSWORD = temp
-print(PASSWORD)
-
 main(PASSWORD)
