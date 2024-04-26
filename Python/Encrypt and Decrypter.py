@@ -107,10 +107,11 @@ def decode_file(file_path):
     
 with open(r"E:\vscode\Python\passwords.txt", encoding='utf-8') as file:
     temp = file.read()
-    temp = decoded_message(temp)
+    if not temp.startswith('p'):
+        temp = decoded_message(temp)
     temp = temp.split()
-if len(temp) >= 3:
-    temp = temp[2]
+if len(temp) >= 11:
+    temp = temp[11]
 
 
 def main(PASSWORD):
@@ -164,5 +165,6 @@ def main(PASSWORD):
             continue
 
 PASSWORD = temp
+print(PASSWORD)
 
 main(PASSWORD)
