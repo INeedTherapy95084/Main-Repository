@@ -1,0 +1,2024 @@
+//data types:
+
+//integer (whole number)
+int a1 = 5;
+int b1 = 9;
+
+//double (number including decimal)
+double a2 = 5.5;
+double b2 = 9.9;
+
+//char (single character)
+char a3 = 'a';
+char b3 = 'b';
+
+//boolean (true or false)
+bool a4 = true;
+bool b4 = false;
+
+//string (object that represents a sequence of text)
+std::string a5 = "Hello";
+std::string b5 = "World";
+
+//const (spesifyies that a variable's value is constant)
+const int a6 = 5;
+int a6 = 6; // tells compiler to prevent anything from modifying it //
+
+
+
+//EXTRA Math operators:
+int A = 2;
+int B = 3;
+int C;
+double D =3.1416;
+C = std::max (x, y);
+
+C = std::min (x, y);
+
+C = pow(B, A);
+
+C = sqrt(A);
+
+C = abs(-A);
+
+C = round(D);
+
+C = ceil(D);
+
+C = floor(D);
+
+//go to https://en.cppreference.com/w/cpp/numeric/math to find more operators
+
+
+// If statements (conditional statements):
+// (else , else if, swtich and ternary operator)
+
+else + else if:
+std::cout << "Please enter your age: " << std::endl;
+int age;
+std::cin >> age;
+
+if(age >= 18){
+  std::cout << "Accses granted" << std::endl;
+}
+else if(age <= 0){
+  std::cout << "ERRORor_INVALID_AGE" << std::endl;
+}
+else if(age >= 100){
+   std::cout << "ERRORor_INVALID_AGE" << std::endl;
+}
+else if (age < 18){
+  std::cout << "accses deined" << std::endl;
+}
+
+//swtich:
+std::cout <<"What is the month (in number) = " << std:: endl;
+int month;
+std::cin >>month;
+
+switch(month){
+  case 1: std::cout << "Its January" << std::endl;
+    break;
+  case 2: std::cout << "Its February" << std::endl;
+    break;
+  case 3: std::cout << "Its March" << std::endl;
+    break;
+  case 4: std::cout << "Its April" << std::endl;
+    break;
+  case 5: std::cout << "Its May" << std::endl;
+    break;
+  case 6: std::cout << "Its June" << std::endl;
+    break;
+  case 7: std::cout << "Its July" << std::endl;
+    break;
+  case 8: std::cout << "Its August" << std::endl;
+    break;
+  case 9: std::cout << "Its September" << std::endl;
+    break;
+  case 10: std::cout << "Its October" << std::endl;
+    break;
+  case 11: std::cout << "Its November" << std::endl;
+    break;
+  case 12: std::cout << "Its December" << std::endl;
+    break;
+  default:
+  std::cout << "ERRORor_INVALID_MONTH" << std::endl;
+}
+
+// Ternary operator:
+// (condition ? expressionTrue : expressionFalse;)
+
+int grade = 75;
+
+grade >= 60 ? std::cout << "You pass" : std::cout << "You fail";
+
+int number = 5;
+number % 2 ? std::cout << "Odd" : std::cout << "Even";
+
+bool hungry = true;
+hungry ? std::cout << "I am hungry" : std::cout << "I am full";
+
+std::cout << (hungry ? "I am hungry" : "I am full");
+
+
+// Conditional operators:
+//(&& , || , !)
+
+// && = checks if both conditions are true
+
+int temp;
+
+std::cout << "Enter the tempereture: ";
+  std::cin >> temp;
+
+if(temp >= 0 && temp <= 30){
+  std::cout << "The tempreture is good";
+}
+else{
+  std::cout << "The tempreture is bad";
+}
+
+// || = checks if atleast one condition is true
+
+if(temp >= 0 || temp >= 30){
+  std::cout << "The tempreture is bad";
+}
+else{
+  std::cout << "The tempreture is good";
+}
+
+// ! = reverses the result, returns false if the result is true
+
+bool sunny = true;
+
+if(!sunny){ //This makes the sunny boolien false
+  std::cout << "Its not sunny today";
+}
+else {
+  std::cout << "Its sunny outside"; //so then the code exicute's this
+}
+
+
+
+// String methods:
+//(Legnth , getline , empty , size , append , insert , clear , at , erase , find)
+
+std::string name;
+
+std::cout << "Enter your name: ";
+std::getline(std::cin , name);
+
+if(name.empty()){
+  std::cout << "You did not enter anything";
+}
+else if(name.length() > 8){
+  std::cout << "Your name can't be over 8 charachters";
+}
+else if(name.length() <= 8){
+  std::cout << "Hello " << name << '\n';
+  name.append("!");
+  name.insert(0, @);
+  std::cout << "your username is " << name;
+}
+
+
+
+//some extra's: name.at(0) this identefyies the charecter on that position
+name.erase(0, 3) this erases the first 3 charecters
+name.find("a") this finds the first 'a' in the string
+
+
+// Loops:
+//(while , do while , for)
+
+//while:
+
+while(name.empty()){
+  std::cout << "Enter your name: ";
+  std::getline(std::cin, name);
+}
+
+std::cout << "Hello " << name;
+
+//do while:
+
+int num;
+
+do{
+  std::cout << "Enter a positive number: ";
+  std::cin >> num;
+}while(num < 0);
+
+std::cout << "Your number is " << num;
+
+//for:
+
+for(int i = 0; i <= 5; i++){
+  std::cout << "i\n";
+}
+std::cout << "The countdown has ended";
+
+//extra's (break , continue, nested loops):
+
+for(int i = 0; i <=20; i++){
+  if(i == 13){
+    continue;
+  }
+  if(i == 15){
+    break;
+  }
+  std::cout << i << '\n';
+}
+
+//nested loops:
+
+int rows;
+int columns;
+char symb;
+
+std::cout << "Enter the number of rows: ";
+std::cin >> rows;
+
+std::cout << "Enter the number of columns: ";
+std::cin >> columns;
+
+std::cout << "Enter a symbol: ";
+std::cin >> symb;
+
+for(int i = 0; i <= rows; i++){
+  for(int j = 0; j <= columns; j++){
+    std::cout << symb;
+  }
+  std::cout << '\n';
+}
+
+
+// Random number generator:
+//(rand , srand)
+
+srand(time(NULL));
+int num = (rand() % 6) + 1;
+
+std::cout << num;
+
+
+//or
+
+srand(time(NULL));
+int randNum = (rand() % 6) + 1;
+
+switch{
+  case 1:
+  case 2:
+  case 3:
+  case 4:
+  case 5:
+  case 6:
+}
+
+//Function:
+//(void and return type)
+
+void happyBirthday(std::string name, int age){
+  cout << "Happy birthday to " << name << '\n';
+  cout << "Happy birthday to " << name << '\n';
+  cout << "Happy birthday to dear " << name << '\n';
+  cout << "Happy birthday to " << name << '\n';
+  cout << "Your are " << age << " years old" << '\n';
+}   //you add this before the main function
+
+std::string name = "A";
+int age = 15;
+
+happyBirthday(name, age); < to call the function
+
+//return type:
+
+double square(double length){
+  return length * length;
+}
+double cube(double length){
+  return length * length * length;
+}
+
+double length;
+double area = square(length);
+double volume = cube(length);
+
+
+
+std::string fullName(std::string firstName, std::string lastName){
+  return firstName + ' ' + lastName;
+}
+
+
+
+//overload function:
+
+void bakePizza(){
+  std::cout << "Here is your pizza" << '\n':
+}
+void bakePizza(std::string topping1){
+  std::cout << "Here is your pizza with " << topping1 << '\n';
+}
+void bakePizza(std::string topping1, std::string topping2){
+  std::cout << "Here is your pizza with " << topping1 << " and " << topping2 << '\n';
+}
+
+//locial veriable: variable's that are in the scope of a function 
+//global veriable: variable's that are in the scope of the program
+
+//arrays: a data structure that can store multiple values of the same data type,
+//        and they can be accsessed by thair index number.
+
+std::string cars[3] = {"supra", "lambo", "bugati", "ferrari"};
+std::cout << cars[0];  = supra
+std::cout << cars[2];  = bugati
+
+//sizeof and size_t oporator: determains the size of variable, data type, class, object, array's etc 
+//                            mostly used to find how many elements are in an array
+//                            the diffrence between sizeof and size_t is you can use size_t for both pointers and non pointers
+//                            wereas you cant use size of for pointers
+
+char grade[] = {"A", "B", "C", "D", "F"};
+std::cout << sizeof(grade)/sizeof(char) << eliments;
+// = 5 eliments
+
+std::string students[] = {"Bobby", "Dick", "n Balls"};
+std::cout << sizeof(students)/sizeof(std::string) << eliments;
+// = 3 eliments
+
+//itarating over an array:
+
+for(int i = 0; i < sizeof(students)/sizeof(std::string); i++){
+  std::cout << students[i] << '\n';
+}
+
+
+
+//foreach loop (ONLY USE IF U HAV TO DISPLAY EVERYTHING IN AN ARRY SERIAL WISE):
+
+for(std::string student : students){
+  std::cout << student << '\n';
+}
+
+or 
+
+for(auto student : students){
+  std::cout << student << '\n';
+}
+
+//C-String = If a character array is null terminated(\0), it's called as C-String
+
+char message1 [] {'H','e','l','l','o','\0'};
+std::cout << "message1 : " << message1 << std::endl;
+std::cout << "sizeof(message1) : " << sizeof(message1) << std::endl; 
+// this type of printing method only works with string and chars
+
+char message3 [] {'H','e','l','l','o'}; // This is not a c string as there is not null character
+std::cout << "message3 : " << message3 << std::endl;
+std::cout << "sizeof(message3) : " << sizeof(message3) << std::endl;
+
+//String literal:
+
+char message4 [] {"Hello"};
+std::cout << "message4 : " << message4 << std::endl;
+std::cout << "sizeof(message4) : " << sizeof(message4) << std::endl;
+
+//Passing an array to a function:
+
+double FunctionName(int array[], int size);
+size = sizeof(array)/sizeof(int);
+
+
+
+//serching for a value in an array;
+
+int numbers[] = {'1', '2', '3', '4', '5'}
+int size = sizeof(numbers)/sizeof(int);
+int index
+int myNum
+
+std::cout << "Enter a element: " << '\n';
+std::cin >> myNum;
+
+index = serchArray(array[], size, myNum);
+if(index != -1){
+std::cout << myNum << " id at index " << index << '\n';
+}
+else{
+  std::cout << myNum << " is not in the array" << '\n';
+}
+
+
+double serchArray(int array[], int size, int myNum){
+  for(int i = 0; i < size; i++){
+    if(array[i] == myNum){
+    return i;
+    }
+    else{
+      return -1;
+    }    
+  }
+}
+
+
+//Sorting an array:
+
+int numbers[] = {5, 9, 6, 2, 8, 1, 10, 4, 7, 3};
+int size = sizeof(numbers)/sizeof(int);
+
+sortArray(numbers, size);
+
+void sortArray(int numbers, int size){
+  int temp;
+  for(int i = 0; i < size - 1; i++)
+    for(int j = 0; j < size - 1; j++){
+      if(array[j] < array[j + 1]){
+      temp = numbers[j];
+      numbers[j] = numbers[j + 1];
+      numbers[j + 1] = temp;
+    }
+  }
+}
+
+
+//Fill arrays: fills a range of elements with a specifyied value.
+//fill(begin, end, value);
+
+const int size = 6;
+int numbers[size];
+
+std::fill(numbers, numbers + (size/3), 1);
+std::fill(numbers + (size/3), numbers + (size/3)*2, 2);
+std::fill(numbers + (size/3)*2, numbers + size, 3);
+
+for(int number : numbers){
+  std::cout << number << '\n';
+}
+
+
+//arrays (with user input):
+
+const int arraySize = 5;
+std::string foods[arraySize];
+int size = sizeof(foods)/sizeof(std::string);
+std::string temp;
+
+for(int i = 0; i < size; i++){
+  std::cout << "Enter your favourite foods or 'q' to quit: ";
+  std::getline(std::cin, temp);
+
+   if(temp == "q"){
+     break;
+  }
+  else{
+     foods[i] = temp;
+  }
+}
+
+std::cout << "Your favoutire foods are:" << '\n';
+
+for(int i = 0; !foods[i].empty(); i++){
+  std::cout << foods[i] << '\n';
+}
+
+
+//manipulating string or char arrays:
+//use #include <cctype>
+
+//Check if character is alphanumeric
+//std::isalnum
+
+std::cout << "C is alphanumeric : "<< std::isalnum('C') << std::endl;
+std::cout << "^ is alphanumeric : "<< std::isalnum ('^') << std::endl;
+
+or
+
+char input_char {'*'}; 
+
+if(std::isalnum(input_char)){
+  std::cout << input_char << is alhpanumeric." << std::endl;
+}else{
+  std::cout << input_char <<<<< is not alphanumeric." << std::endl;
+}
+
+//check blank space count:
+//std::isblank
+
+std::string message[] {"Hello there how are you? what are you doing?"};
+int size = sizeof(message) / sizeof(message[0]);
+int blankSpace = 0;
+
+for(int i = 0; i < size; i++){
+  for(char c : message[i]){
+    if(std::isspace(c)){
+      blankSpace++;
+    }
+  }
+}
+std::cout << blankSpace << " blank spaces found in array";
+
+//check if something is lower case or upper case
+//std::islower std::isupper
+
+char thought[] {"The programing language is one of the most used languages in the planet"};
+int upperCase = 0;
+int lowerCase = 0;
+
+std::cout << "original string: " << thought << '\n' << '\n';
+
+for(char c : thought){
+  if(std::isupper(c)){
+    upperCase++;
+  }
+  else if(std::islower(c)){
+    lowerCase++;
+  }
+}
+
+//you can also do dis shi with std::isdigit to find digits
+
+//im too lazy to put in all the comands so just go to https://en.cppreference.com/w/cpp/header/cctype nd get em urself
+
+
+
+//c-string manipulation:
+//use #include <cstring>
+
+//Find the length of a string:
+//std::strlen
+
+const char message1 [] {"The sky is blue."};
+
+const char* message2 {"The sky is blue."}; //Array decays into pointer when we use const char*
+std::cout << "message1 : " << message1 << std::endl;
+	
+//strlen ignores null character
+std::cout << "strlen(message1) : " << std::strlen(message1) << std::endl;
+	
+// Includes the null character
+std::cout << "sizeof(message1) : " << sizeof(message1) << std::endl;
+	
+//strlen still works with decayed arrays
+std::cout << "strlen(message2) : " << std::strlen(message2) << std::endl;
+	
+//Prints size of pointer
+std::cout << "sizeof(message2) : " << sizeof(message2) << std::endl;
+
+std::cout << "The amout of upercase and lowercase charecters are: \n" << "Upper case: " << upperCase << "\nLowerCase: " << lowerCase;
+
+//compareing c-strings: Returns negative value if lhs appears before rhs in lexicographical order,
+//                      Zero if lhs and rhs compare equal.
+//                      and Positive value if lhs appears after rhs in lexicographical order.
+
+//std::strcmp - signature : int strcmp( const char *lhs, const char *rhs );
+
+string_data1 = "Alabama";
+string_data2 = "Alabamb";
+    
+std::cout << "std::strcmp (" << string_data1 << "," << string_data2 << ") : " << std::strcmp(string_data1, string_data2) << std::endl;
+
+
+string_data1 = "Alacama";
+string_data2 = "Alabama";
+
+    
+std::cout << "std::strcmp (" << string_data1 << "," << string_data2 << ") : " << std::strcmp(string_data1, string_data2) << std::endl;
+
+string_data1 = "India";
+string_data2 = "France";
+
+    
+std::cout << "std::strcmp (" << string_data1 << "," << string_data2 << ") : " << std::strcmp(string_data1, string_data2) << std::endl;
+
+string_data1 = "Kigali";
+string_data2 = "Kigali";
+
+    
+std::cout << "std::strcmp (" << string_data1 << "," << string_data2 << ") : " << std::strcmp(string_data1, string_data2) << std::endl;
+
+//Compareing the first 'n' number of characters in the strings
+//Returns : Negative value if lhs appears before rhs in lexicographical order.
+//Zero if lhs and rhs compare equal, or if count is zero.
+//Positive value if lhs appears after rhs in lexicographical order.
+
+//std::strncmp : int strncmp( const char *lhs, const char *rhs, std::size_t count );
+
+
+const char* string_data1{ "Alabama" };
+const char* string_data2{ "Blabama" };
+size_t n{3};
+
+
+std::cout << "std::strncmp (" << string_data1 << "," << string_data2 << "," << n << ") : " 
+<< std::strncmp(string_data1,string_data2,n) << std::endl;
+              
+string_data1 = "aaaia";
+string_data2 = "aaance";
+    
+std::cout << "std::strncmp (" << string_data1 << "," << string_data2 << "," << n << ") : " 
+<< std::strncmp(string_data1,string_data2,n) << std::endl;
+              
+              
+n = 5;
+    
+std::cout << "std::strncmp (" << string_data1 << "," << string_data2 << "," << n << ") : " 
+<< std::strncmp(string_data1,string_data2,n) << std::endl;
+
+//Find the first occurrence of a character: find 
+//std::strchr
+
+const char * const str { "Try not. Do, or do not. There is no try."}; 
+//Can make this a const pointer to prevent users from making it point somewhere else
+
+char target = 'T';
+const char *result = str;
+size_t iterations{};
+	
+while ((result = std::strchr(result, target)) != nullptr) {
+  std::cout << "Found '" << target << "' starting at '" << result << "'\n";
+ 
+  // Increment result, otherwise we'll find target at the same location
+	++result;
+	++iterations;
+}
+std::cout << "iterations : " << iterations << std::endl;
+
+//Find last occurence
+//std::strrchr()
+
+char input[] = "/home/user/hello.cpp";
+char* output = std::strrchr(input, '/');
+if(output){
+  std::cout << output+1 << std::endl; //+1 because we want to start printing past 
+                                       // the character found by std::strrchr.
+}
+
+//C-String Concatenation And Copying:
+//use #include <cstring>
+
+//joining or Concatenation strings:
+//std::strcat
+
+char dest[50] = "Hello ";
+char src[50] = "World!";
+std::strcat(dest, src); // Some compilers (MSVC) think these functions are unsafe!
+std::cout << "dest : " << dest << std::endl; // Hello World
+std::strcat(dest, " Goodbye World!"); 
+std::cout << "dest : " << dest << std::endl; // Hello World Goodbye World!
+
+or
+
+std::cout << std::endl;
+std::cout << "More std::strcat : " << std::endl;
+	
+char *dest1 = new char[30]{'F','i','r','e','l','o','r','d','\0'};
+char *source1 = 
+new char[30]{',','T','h','e',' ','P','h','e','n','i','x',' ','K','i','n','g','!','\0'};
+		
+//NOTE TO SELF : 
+		//Describe what's going to happen in std::strcat before you do the cat :
+		//source is going to be appended to dest, and the process
+		//will start by overriding the null character in dest
+			
+std::cout << "std::strlen(dest1) :" << std::strlen(dest1) << std::endl;
+std::cout << "std::strlen(source1) : " << std::strlen(source1) << std::endl;
+    
+std::cout << "Concatenating..." << std::endl;
+std::strcat(dest1,source1);
+    
+std::cout << "std::strlen(dest1) :" << std::strlen(dest1) << std::endl;
+std::cout << "dest1 : " << dest1 << std::endl;
+
+//you can also set how many charecters you want to join to another string
+//std::strncat
+//signature : char *strncat( char *dest, const char *src, std::size_t count );
+
+char dest2[50] { "Hello" };
+    
+char source2[30] = {" There is a bird on my window"};
+    
+//You can even use the returned pointer immediately for print out
+//This is a pattern you'll see a lot in C++ code out there.
+std::cout << std::strncat(dest2,source2,6) << std::endl;
+    
+//or you can do std::strncat separately and print dest2
+std::strncat(dest2,source2,6);
+std::cout << "The concatenated string is : " << dest2 << std::endl;
+
+//orrr you can use std::strcpy
+//std::strcpy - signature : char* strcpy( char* dest, const char* src );
+
+const char* source3 = "C++ is a multipurpose programming language.";
+char *dest3 = new char[std::strlen(source3) + 1];// +1 for the null character
+													//Contains garbage data
+													//Not initialized
+													
+std::strcpy(dest3,source3);
+    
+std::cout << "sizeof(dest3) : " << sizeof(dest3) << std::endl;
+std::cout << "std::strlen(dest3) : " << std::strlen(dest3) << std::endl;
+std::cout << "dest3 : " << dest3 << std::endl;
+
+//Copy n characters from src to dest
+//std::strncpy
+//signature : char *strncpy( char *dest, const char *src, std::size_t count );
+
+const char* source4 = "Hello";
+char dest4[] = {'a', 'b', 'c', 'd', 'e', 'f','\0'};   // Have to put the terminating
+														                          //null char if we want to print
+    
+std::cout << "dest4 : " << dest4 << std::endl;
+    
+std::cout << "Copying..." << std::endl;
+std::strncpy(dest4,source4,5);
+    
+std::cout << "dest4 : " << dest4 << std::endl;
+
+//we can also initialize a part of an exsisting string to a new string
+
+std::string message = "Hello World";
+
+std::string newMessage {message, 6, 5};
+
+//get the rest of the commands at https://en.cppreference.com/w/cpp/header/cstring
+
+
+//2D or multidimentional arrays:
+
+int numbers[3][3] = {{1, 2, 3},
+                     {4, 5, 6},
+                     {7, 8, 9}};
+
+int rows = sizeof(numbers)/sizeof(numbers[0]);
+int colums = sizeof(numbers[0])/sizeof(numbers[0][0]);
+
+for(int i = 0; i < rows; i++){
+  for(int j = 0; j < colums; j++){
+    std::cout << numbers [i][j] << ' ';
+  }
+  std::cout << '\n';
+}
+
+
+//passing by refrance:
+
+void swapNums(int &x, int &y);
+
+int x = 5;
+int y = 10;
+
+swapNums(int &x, int &y){
+  int temp;
+  temp = y;
+  y = x;
+  x = temp;
+}
+
+
+//pointer: variable that stores a memory address of another veriable.
+// sometimes its easier to work with addresses than veriables
+// &  address of opperator
+// *  derefrance opperator
+
+
+std::string name = "A";
+int age = 15;
+std::string freePizzas[5] = {"pizza1", "pizza2", "pizza3", "pizza4", "pizza5"};
+
+std::string *pName = &name;
+int *pAge = &age;
+std::string *pFreePizzas = freePizzas;
+
+std::cout << *pName << '\n' << pAge << '\n' << *pFreePizzas;
+
+
+//null pointers: a special value that means somthing has no value when a pointer is assigned to a null pointer,
+//               it means that pointer isint pointing to anything.
+//nullptr: is also helpfull to determain if a address was sucsessfully assigned to a pointer
+
+int *pointer = nullptr;
+int num = 123;
+
+pointer = &num;
+
+if(pointer == nullptr){
+  std::cout << "address was not assigned";
+}
+else{
+  std::cout << "address was assigned sucsessfully";
+}
+
+
+//Dynamic memory: memory that is allocated after the program is runing and compiled.
+//                use the "new" operator to allocate memory in the heap rather than the stack
+
+//               useful when we dont know how much memory we will need, makes our programe more flexible,
+//               especially when we dont know how much the user is going to input
+
+int *pNum = NULL;
+
+pNum = new int;
+
+*pNum = 21;
+
+
+std::cout << "address: " << pNum << '\n';
+std::cout << "value: " << *pNum;
+
+delete pNum;
+pNum = nullptr;
+
+or
+
+char *pGrades = nullptr;
+int size;
+
+std::cout << "How many grades do you want to input?: "
+std::cin >> size
+
+pGrades = new char[size];
+
+for(int i = 0; i < size; i++){
+  std::cout << "Enter grade #" << i + 1 << ": ";
+  std::cin >> pGrades[i];
+}
+
+for(int i = 0; i < size; i++){
+    std::cout << *pGrades[] << " ";
+  }
+
+delete[] pGrades;
+pGrades = nullptr
+
+//lifetime through scope mechnium:
+
+{  // the variable comes alive after this brace
+  int loca_scope_var = 20
+} // and dies after this
+
+//NOTE: For multiple pointers pointing to the same address ,  Make sure there is
+//      one clear pointer (master pointer) that owns the memory ( responsible for releasing when
+//      necessary) , other pointers should only be able to dereference when the master pointer is valid
+    
+int * p_number8 {new int{382}};// Let's say p_number8 is the master pointer
+int * p_number9 {p_number8};
+    
+//Dereference the pointers and use them
+std::cout << "p_number8 - " << p_number8 << " - " << *p_number8 << std::endl;
+    
+if(!(p_number8 == nullptr)){ // Only use slave pointers when master pointer is valid
+  std::cout<< "p_number9 - " << p_number9 << " - " << *p_number9 << std::endl;
+}
+    
+delete p_number8; // Master releases the memory 
+p_number8 = nullptr;
+    
+if(!(p_number8 == nullptr)){ // Only use slave pointers when master pointer is valid
+  std::cout<< "p_number9 - " << p_number9 << " - " << *p_number9 << std::endl;
+}else{
+  std::cerr << "WARNING : Trying to use an invalid pointer" << std::endl; 
+}
+
+//NOTE-2: Sometimes the 'new' operator may fail to alocate memory to the heap
+//        even tho this happens in very rare cases, the're 2 ways to prevent this
+//        using: exeption , std::nothrow
+
+//exception:
+
+for(size_t i{0} ; i < 100 ; ++i){
+  try{
+    int * data = new int[1000000000];
+  }catch(std::exception& ex){
+    std::cout << "  Something went wrong : " << ex.what() << std::endl; // this also prints the reason for the error
+  }
+}
+
+//std::nothrow: tells the system to not throw an exeption when the 'new' operation fails
+
+for(size_t i{0} ; i < 100 ; ++i){
+   
+  int * data = new(std::nothrow) int[1000000000];
+
+  if(data!=nullptr){
+    std::cout << "Data allocated" << std::endl;
+  }else{
+    std::cout << "Data allocation failed" << std::endl;
+  }   
+}
+
+//refrances = baisicly just putting the address of a veriable into another variable
+//            the created refrance veriable will act exacly like the base veriable
+
+int int_data = 20;          //base veriables
+double double_data = 60.6;
+
+int &ref_int_data = int_data;          //refrances
+double &ref_double_data = double_data;
+
+std::cout << "int_data : " << int_data << std::endl;
+std::cout << "&int_data : " << &int_data << std::endl;
+std::cout << "double_data : " << double_data << std::endl;
+std::cout << "&double_data : " << &double_data << std::endl;
+
+std::cout << "ref_int_data : " << ref_int_data << std::endl;
+std::cout << "&ref_int_data : " << &ref_int_data << std::endl;
+std::cout << "ref_double_data : " << ref_double_data << std::endl;
+std::cout << "&ref_double_data : " << &ref_double_data << std::endl;
+
+int_data = 111;     //if you change the base veriables,
+double_data = 67.2; //then the values of the refrances will also change
+
+//NOTE: you can also make the refrance a const and can still change the value of the veriable by changing
+//      the base veriable
+
+
+//recurtion = a programing technique that calls or invokes itself from within itself
+//            also breaks complex consepts into smaller steps.
+
+//(itarative and rercursion)
+
+//pros = easy to understand and cleaner code, also used for algorythms
+//cons = uses more memory and slower.
+
+//itarative:
+
+void walk(int steps){
+  for(int 1 = 0; i < steps; i++){
+    std::cout << "you just walked a step!";
+  }
+}
+
+std::cout << walk(100);
+
+//recurtion:
+
+void walk(int steps){
+  if(steps < 0){
+    walk(steps);
+    std::cout << "you just walked a step!";
+  }
+}
+
+std::cout << walk(100);
+
+
+//or
+
+
+//itarative:
+
+int factial(int num){
+  int result = 1;
+  for(int i = 1; i <= num; i++){
+    result = result * i;
+  }  
+  return result;
+}
+
+std::cout << factorial(10);
+
+//recurtion:
+
+int factorial(int num){
+  int result = 1;
+  if(num > 1){
+    return num * factorial(num - 1);
+  }  
+  else{
+   return 1;
+  }
+}
+
+std::cout << factorial(10);
+
+
+
+//function templates = describes what a function looks like. 
+//                     can be used to create a function that works with multiple data types.
+
+//                     Ex. Its like a cookie cutter, but the dough used can be dffrent
+
+template <typename T> T maximum( T a, T b){
+  return (a > b) ? a : b;
+}
+
+
+int a{10};
+int b{23};
+double c{34.7};
+double d{23.4};
+std::string e{"hello"};
+std::string f{"world"};
+
+auto max = maximum<double>(a,f);
+std::cout << "max : " << max << std::endl;
+
+or
+
+template <type name T, type name U> //write before "using namespace std;"
+
+auto max(T x, U y){
+  return(x > y)? x : y;
+}
+
+
+std::cout << max(25 , A);
+
+//you can also pass function templates by value and refrance:
+
+//passing by refrance:
+
+template <typename T> const T& maximum(const T& a, const T& b){
+    std::cout << "In - &a: " << &a << std::endl; // // 0x111abc
+    return (a > b ) ? a : b ;
+}
+
+
+double a {23.5};
+double b {51.2};
+
+std::cout << "Out - &a: " << &a << std::endl; 
+auto result = maximum(a,b);
+std::cout << "Out - &a: " << &a << std::endl; 
+
+//passing by value:
+
+template <typename T> T maximum(T a, T b){
+    std::cout << "In - &a: " << &a << std::endl;
+    return (a > b ) ? a : b ;
+}
+
+
+double a {23.5};
+double b {51.2};
+
+std::cout << "Out - &a: " << &a << std::endl; // 0x111abc
+auto result = maximum(a,b);
+std::cout << "Out - &a: " << &a << std::endl; // 0x111abc
+
+//template specialization:
+
+template <typename T> T maximum(T a,T b){
+    return (a > b) ? a : b ; 
+}
+
+template <>
+const char * maximum<const char*> (const char* a, const char* b){
+    return ( std::strcmp(a,b) > 0) ? a : b; //add #include <cstring>
+}
+
+
+int a{10};
+int b{23};
+double c{34.7};
+double d{23.4};
+std::string e{"hello"};
+std::string f{"world"};
+	
+auto max_int = maximum(a,b); // int type deduced
+auto max_double = maximum(c,d);// double type deduced
+auto max_str = maximum(e,f) ;// string type deduced
+	
+std::cout << "max_int : " << max_int << std::endl;
+std::cout << "max_double : " << max_double << std::endl;
+std::cout << "max_str : " << max_str << std::endl;
+    
+const char* g{"wild"};
+const char* h{"animal"};
+
+const char* result = maximum(g,h);
+std::cout << "max(const char*) : " << result << std::endl;
+
+
+//consepts: A mechanism to place constraints on your template type parameters
+//use #include <consepts>
+
+//std::integral: only taking integer values
+
+//Syntax1:
+template <typename T>
+requires std::integral<T>
+T add( T a, T b){
+  return a + b;
+}
+
+//Syntax2:
+template <std::integral T>
+T add( T a, T b){
+  return a + b;
+}
+
+//Syntax3:
+auto add(std::integral auto a , std::integral auto b){
+  return a + b;
+}
+
+//Syntax4:
+template <typename T>
+T add( T a, T b) requires std::integral<T>{
+  return a + b;
+}
+
+
+char a_0{10};
+char a_1{20};
+	
+auto result_a = add(a_0,a_1);
+std::cout << "result_a : " << static_cast<int>(result_a) << std::endl;
+	
+int b_0{11};
+int b_1{5};
+auto result_b = add(b_0,b_1);
+std::cout << "result_b : " << result_b << std::endl;
+
+
+double c_0 {11.1};
+double c_1 {1.9};
+auto result_c = add(c_0,c_1);
+std::cout << "result_c : " << result_c << std::endl;
+
+//get more consepts at https://en.cppreference.com/w/cpp/concepts
+
+//building you own consepts:
+// use #include <type_traits>
+
+//Syntax1:
+template <typename T>
+concept MyIntegral = std::is_integral_v<T>;
+
+MyIntegral auto add( MyIntegral auto a, MyIntegral auto b) {
+  return a + b;
+}
+
+//Syntax2:
+template <typename T>
+concept Multipliable =  requires(T a, T b) {
+	a * b; // Just makes sure the syntax is multiplyable
+};
+
+
+template <typename T>
+concept Incrementable = requires (T a) {
+	a+=1;
+	++a;  // Just makes sure the syntax is incrementable
+	a++;
+};
+
+template <typename T>
+requires Incrementable<T>
+T add (T a, T b){
+    return a + b;
+}
+
+
+double x{6};
+double y{7};
+
+//std::string x{"Hello"};
+//std::string y{"World"};
+
+add(x,y);
+
+//Nested requirements:
+template <typename T>
+concept TinyType = requires (T t){
+  sizeof(T) <= 4; // Simple requirement : Only enforces syntax
+  requires sizeof(T) <= 4;
+};
+
+//Compound requirements:
+template <typename T>
+concept Addable = requires (T a, T b) {
+	//noexcept is optional
+	{a + b} -> std::convertible_to<int>;
+	//Checks if a + b is valid syntax, doesn't throw expetions(optional) , and the result
+	//is convertible to int(optional)
+};
+
+
+double x{67};
+double y{56};
+
+//std::string x{"Hello"};
+//std::string y{"World"};
+
+//auto s = x + y;
+
+auto result  = add(x,y);
+std::cout << "result : " << result << std::endl;
+std::cout << "sizeof(result) : " << sizeof(result) << std::endl;
+
+//Combined consepts:
+template <typename T>
+concept TinyType = requires (T t){
+  sizeof(T) <= 4; // Simple requirement : Only enforces syntax
+  requires sizeof(T) <= 4;
+};
+
+template <typename T>
+//requires std::integral<T> || std::floating_point<T> // OR operator
+//requires std::integral<T> && TinyType<T>
+requires std::integral<T> && requires ( T t){ // you shouldn't use this requirement
+	sizeof(T) <=4;
+	requires sizeof(T) <= 4;
+}
+T add(T a, T b){
+    return a + b;
+}
+
+//Consepts and auto:
+//you probably might not have a use for this, but it still exists soo LEARN It
+
+std::integral auto add (std::integral auto a,std::integral auto b){
+	return a + b;
+}
+
+
+std::floating_point auto x = add(5,8);
+
+
+//How to run a function across multiple files:
+//I cant write the entire code so imma just type the steps
+
+//step-1: create a file for the function definition, and one for function decliration(optional)
+//step-2: add #include "The name of the file.h" at the top for each file you want to attach
+//step-3: write the code within the files
+//step-4: you run
+
+
+//passing by pointer and refrance
+
+//passing by pointer:
+void sayAge(int* age){ // Parameter
+  ++(*age); 
+  std::cout <<  "Hello , you are " << *age << " years old! &age : " << &age <<  std::endl;//24
+}
+
+or
+int age{23}; // Local
+std::cout << "age (before call) : " << age << "&age : " << &age << std::endl; //23
+sayAge(&age); // Argument
+std::cout << "age (after call) : " << age << "&age : " << &age <<  std::endl; //24
+
+//passing by refrance:
+void sayAge(int &age){ 
+  ++age; 
+  std::cout <<  "Hello , you are " << age << " years old! &age : " << &age <<  std::endl;//24
+}
+
+
+int age{23}; // Local
+std::cout << "age (before call) : " << age << "&age : " << &age << std::endl; 
+sayAge(age); 
+std::cout << "age (after call) : " << age << "&age : " << &age <<  std::endl; 
+
+
+
+//lambda fuctions: A mechanism to set up anonymous functions (without names).
+//                 Once we have them set up, we can either give them names and call them,
+//                 or we can even get them to do things directly.
+
+//Lambda function signature : 
+
+[capture list] (parameters) ->return type{
+  // Function body
+}
+
+//Declaring a lambda function and calling it through a name
+
+auto func = [](){
+  std::cout << "Hello World!" << std::endl; //you need to declare and define this inside 'main'
+};
+
+func();
+
+//Declare a lambda function and call it directly (without giving it a name):
+
+[](){
+  std::cout << "Hello World!" << std::endl;
+}();    //NOTE: if you create a function like this, then it will only be exicuted once and that is when the program starts running
+
+//Lambda function that takes parameters:
+//(nameless and with name)
+
+//nameless:
+
+[](double a, double b){
+  std::cout << "a + b : " << (a + b)  << std::endl;
+}(10.0,50.0);
+
+//with name:
+
+auto func1 = [](double a, double b){
+  std::cout << "a + b : " << (a + b)  << std::endl;
+};
+
+func1(10,20);
+func1(5,7);
+
+//Lambda function that returns something:
+
+auto result = [](double a, double b){
+  return a + b;
+}(10,60);
+
+std::cout << "result : " << result << std::endl;
+
+//or you can prtiny it stright to the console
+
+std::cout << "result : " << [](double a, double b){
+  return a + b;
+}(10,60) << std::endl; 
+
+//or 
+
+auto func1 = [](double a, double b){
+  return a + b;
+};
+
+auto result1 = func1(23,7);
+auto result2 = func1(9,45);
+
+std::cout << "result1 : " << result1 << std::endl;
+std::cout << "result2 : " << result2 << std::endl;
+std::cout  <<"direct call : " << func1(5,2) << std::endl;
+
+//specify the return type
+auto func3 = [](double a, double b)-> int{
+  return a + b;
+};
+
+auto func4 = [](double a, double b){
+ return a + b;
+};
+
+double a{6.9};
+double b{3.5};
+
+auto result3 = func3(a,b);
+auto result4 = func4(a,b);
+
+std::cout << "result3 : " << result3 << std::endl;
+std::cout << "result4 : " << result4 << std::endl;
+std::cout << "sizeof(result3) : " << sizeof(result3) << std::endl; // 4
+std::cout << "sizeof(result4) : " << sizeof(result4) << std::endl; // 8
+
+//Capture lists: Capture lists ar basicly the same as passing some values to a normal function but the bracets are different
+
+double a{10};
+double b{20};
+     
+auto func = [a,b](){
+  std::cout  << "a + b : " << a + b << std::endl;
+}:
+func();
+//NOTE: lambda functions can also be passed as value and refrance, so use the & function if needed
+
+//Capture everything: if you use this than you can use every veriable from outside the function in the function
+//                    you can also capture everything by value and refrance
+
+//Capture everything by value:
+int c{42};
+     
+auto func = [=](){
+  std::cout << "Inner value : " << c << std::endl;
+};
+     
+for(size_t i{} ; i < 5 ;++i){
+  std::cout << "Outer value : " << c << std::endl;
+  func();
+  ++c;
+}
+
+//Capturing all reference
+int c{42};
+int d{5};
+     
+auto func = [&](){
+  std::cout << "Inner value : " << c << std::endl;
+  std::cout << "Inner value(d) : " << d << std::endl;
+};
+     
+for(size_t i{} ; i < 5 ;++i){
+  std::cout << "Outer value : " << c << std::endl;
+  func();
+  ++c;
+}
+
+
+//strucs: a struture that group related veriables under one name. 
+//        structs can contain many diffrent data types
+//        veriables in a struct are called members, they can be accsessed with . dot operator
+
+struct student{
+  std::string name;
+  double gpa;
+  bool enrolled = ture;
+};  // before main
+
+
+student student1;
+student1.name = SpongeBob;
+student1.gpa = 3.2;
+
+student student2
+student2.name = Patrick
+student2.gpa = 2.1;
+
+student student3;
+student3.name = Squidward;
+student3.gpa = 2.4;
+student3.enrolled = false;
+
+
+std::cout << studnet1.name << '\n';
+std::cout << studnet1.gpa << '\n';
+std::cout << studnet1.enrolled << '\n';
+
+std::cout << studnet2.name << '\n';
+std::cout << studnet2.gpa << '\n';
+std::cout << studnet2.enrolled << '\n';
+
+std::cout << studnet3.name << '\n';
+std::cout << studnet3.gpa << '\n';
+std::cout << studnet3.enrolled << '\n';
+
+
+//Passing a struct as an argument or function:
+
+struct car{
+  std::string model;
+  int year;
+  std::string color;
+};
+
+void printCar(&car){
+  std::cout << car.model << '\n';
+  std::cout << car.year << '\n';
+  std::cout << car.color << '\n';
+}
+
+void paintCar(&car, color){
+  car.color = colour
+}
+
+
+car car1;
+car car2;
+
+car1.model = "Supra MK5";
+car1.year = 2023;
+car1.color = "White";
+
+car2.model = "Lamborgini";
+car2.year = 2024;
+car2.color = "Matte Black";
+
+paintCar(car2, "Gray")
+
+printCar(car1);
+
+
+//enums = a user defined that consists of paird named integer constants
+//        great if you have a set of potential options
+
+enum Day {sunday, monday, tuesday, wednsday, thursday, friday, saturday}; 
+//if you want you can skip giving each name a value, because it will automaticly give each name a valure from 0 for the first name
+//then 1 for the next one and so on
+
+
+day today = "sunday"
+
+case(today){
+  case sunday: std::cout << "its sunday";
+    break;
+  case monday: std::cout << "its monday";
+    break;
+  case tuesday: std::cout << "its tuesday";
+    break;
+  case wednsday: std::cout << "its wednsday";
+    break;
+  case thursday: std::cout << "its thursday";
+    break;
+  case friday: std::cout << "its friday";
+    break;
+  case saturday: std::cout << "its saturday";
+    break;
+}
+
+
+//objects = a collection of data and functions that operate on that data, these data and fuctions are also called atributes and methods
+//          they can hav charecteristics and can perform actions, can be used to mimic real world objects
+//          objects are created from classes which act at blue-prints, you can also think of them as e structs that can perform actions
+
+class Car{
+   public:
+    std::string model;
+    int year;
+    std::string color;
+
+    void accselirate(){
+      std::cout << "You stepped on the gas, your " << model << " is now going faster";
+    }
+    void break(){
+      std::cout << "You stepped on the break\n";
+    }
+};
+
+
+Car car1;
+
+car1.model = "Supra MK5";
+car1.year = 2023;
+car1.color = "white";
+
+std::cout << car1.model << '\n';
+std::cout << car1.year << '\n';
+std::cout << car1.color << '\n';
+
+car1.accselirate();
+car1.brak();
+
+
+//contructors = a special function that is called when an object is created,
+//              I call it just makeing and assigning values to an object the lazy way
+
+class Student{
+  public:
+    std::string name;
+    int gpa;
+    int age;
+
+    Student() = defalt;
+
+    Student(std::string x, int y, int z){
+      name = x;
+      age = y ;
+      gpa = z;
+    }
+};
+
+
+Student student1("SpongeBob", 20, 3.2);
+
+std::cout << student1.name << '\n';
+std::cout << student1.age << '\n';
+std::cout << student1.gpa << '\n';
+
+//overloaded contructors:
+
+class Pizza{
+  public:
+    std::string toppings1;
+    std::string toppings2;
+  
+  Pizza(){
+
+  }
+  Pizza(std::string x){
+    toppings1 = x;
+  }
+  Pizza(std::string x, std::string y){
+    toppings1 = x;
+    toppings2 = y;
+  }
+}
+
+
+Pizza pizza1(pepparoni);
+Pizza pizza2(mushrooms, chicken);
+pizza pizza3();
+
+std::cout << pizza2.toppings1 << '\n';
+std::cout << pizza2.toppings2 << '\n';
+
+
+//abstraction = hiding unnesesery data from outside a class
+//getters = function that makes a privete atribute READABLE
+//setters = function that makes a privete atribute WRITABLE
+
+class Stove{
+  privete:
+   int tempreture = 0;
+  public;
+  int getTempreture(int x){
+    if(x < 0){
+      tempreture = 0;
+    }
+    else if(x > 10){
+      tempreture = 10;
+    }
+    else{
+      tempreture = x;
+    }
+  }
+}
+
+
+Stove stove;
+
+stove.getTempreture(5);
+
+std::cout << "The tempreture setting is: " << stove.getTempreture();
+
+//destructors: deletes a pointer before the program ends if its created in a construct
+//use #include <string_view> for std::string_view
+
+class Dog{
+    public : 
+        Dog() = default;
+        Dog(std::string_view name_param, std::string_view breed_param, int  age_param);
+        ~Dog();
+
+    private : 
+        std::string name;
+        std::string breed;
+        int * p_age{nullptr};
+};
+Dog::Dog(std::string_view name_param, std::string_view breed_param, int  age_param){   //this Dog::Dog thing is rwally unsecesery,
+    name = name_param;                                                                 //just put it inside the class
+    breed = breed_param;
+    p_age = new int;
+    *p_age = age_param;
+    std::cout << "Dog constructor called for " << name << std::endl;
+}
+
+Dog::~Dog(){
+    delete p_age;
+    std::cout << "Dog destructor called for : " << name << std::endl;
+}
+
+void some_func(){
+    Dog* p_dog = new Dog("Fluffy","Shepherd",2);
+
+    delete p_dog;// Causes for the destructor of Dog to be called
+}
+
+
+some_func();
+    
+std::cout << "Done!" << std::endl;
+
+//the "this" pointer:
+
+class Dog{
+  private : 
+        std::string name;
+        std::string breed;
+        int * p_age{nullptr};
+  public : 
+        Dog() = default;
+        Dog(std::string_view name_param, std::string_view breed_param, int  age_param);
+        ~Dog();
+
+        void print_info(){
+            std::cout << "Dog (" << this << ") : [ name : " << name 
+                << " breed : " << breed << " age : " << *p_age << "]" << std::endl;
+        }
+
+        //Setters
+        //Chained calls using pointers
+        /*
+        Dog* set_dog_name(std::string_view name){
+            //name = name; // This does nothing
+            this->name = name;
+            return this;
+        }
+        Dog* set_dog_breed(std::string_view breed){
+            this->breed = breed;
+            return this;
+        }
+
+        Dog* set_dog_age(int age){
+            *(this->p_age) = age;
+            return this;
+        }
+        */
+
+       //Chained calls using references
+        Dog& set_dog_name(std::string_view name){
+            //name = name; // This does nothing
+            this->name = name;
+            return *this;
+        }
+        Dog& set_dog_breed(std::string_view breed){
+            this->breed = breed;
+            return *this;
+        }
+
+        Dog& set_dog_age(int age){
+            *(this->p_age) = age;
+            return *this;
+        }
+};
+
+Dog::Dog(std::string_view name_param, std::string_view breed_param, int  age_param){
+    name = name_param;
+    breed = breed_param;
+    p_age = new int;
+    *p_age = age_param;
+    std::cout << "Dog constructor called for " << name << " at " << this << std::endl;
+}
+
+Dog::~Dog(){
+    delete p_age;
+    std::cout << "Dog destructor called for " << name << " at " << this <<  std::endl;
+}
+
+
+Dog dog1("Fluffy","Shepherd",2); //Constructor
+dog1.print_info();
+
+/*
+dog1.set_dog_name("Pumba");
+dog1.set_dog_breed("Wire Fox Terrier");
+dog1.set_dog_age(4);
+*/
+
+//Chained calls using pointers
+dog1.set_dog_name("Pumba")->set_dog_breed("Wire Fox Terrier")->set_dog_age(4);
+
+//Chained calls using references
+dog1.set_dog_name("Pumba").set_dog_breed("Wire Fox Terrier").set_dog_age(4);
+
+
+dog1.print_info();
+   
+std::cout << "Done!" << std::endl;
+
+//structs: basicly the same as class, but the diffrence is structs are public by defalt and classes are privete by defalt
+//im too lazy to pase an example
+
+
+//inheritance = A class can recive atributes and methods from another class
+//              children classes recive from parent classes
+//              helps to reuse similer code found within classes
+
+class Animal{
+  public:
+    bool alive = true;
+  void eat(){
+    std::cout << "The animal is eating\n";
+  }
+}
+class Dog : public Animal{
+  public:
+  
+  void bark(){
+    std::cout << "The dog is bhoking";
+  }
+}
+class Cat : public Animal{
+  public:
+  
+  void meow(){
+    std::cout << "The cat is meowing";
+  }
+}
+
+
+Dog dog;
+Cat cat;
+
+std::cout << dog.alive << '\n';
+std::cout << cat.alive << '\n';
+dog.eat();
+cat.meow();
+
+
+class Shapes{
+  public:
+    double area;
+    double volume;
+};
+class Cube : public Shapes{
+  public:
+    double side;
+  Cube(double x){
+    side = x;
+    area = x * x * 6;
+    volume = x * x * x;
+  }
+};
+class Sphere : public Shapes{
+  public:
+    double radius;
+  Sphere(double x){
+    radius = x;
+    area = 4 * 3.1416 * (x * x);
+    volume = (4/3.0) * 3.1415 * (x * x * x); 
+  }
+};
+
+
+Cube cube(10);
+Sphere sphere(8);
+
+std::cout << "Area: " << cube.area << '\n';
+std::cout << "Volume: " << cube.volume << '\n';
+
+std::cout << "Area: " << sphere.area << '\n';
+std::cout << "Volume: " << sphere.volume << '\n';
+
+
+
+//output formating:
+//#include <iomanip> and <ios> to use these comands
+
+//std::setw() = used to organize the output or to make the output look cleaner
+//              can also be used to make lists and tables
+//              can be eater left or right justifyied
+
+//right justifyied:
+
+int s_width = 10;
+
+std::cout << std::right; //this is also the defalt setting so you can also skip adding this
+std::cout << std::setw(s_width) << "Firstname:" << std::setw(s_width) << "Lastname:" << std::setw(s_width) << "Age:";
+std::cout << std::setw(s_width) << "Sponge:" << std::setw(s_width) << "Bob" << std::setw(s_width) << "25";
+std::cout << std::setw(s_width) << "Patrick" << std::setw(s_width) << "N/A" << std::setw(s_width) << "23";
+std::cout << std::setw(s_width) << "Squid" << std::setw(s_width) << "Ward" << std::setw(s_width) << "30";
+std::cout << std::setw(s_width) << "Mr." << std::setw(s_width) << "Crabs" << std::setw(s_width) << "35";
+
+//left justifyied:
+
+int s_width = 10;
+
+std::cout << std::left;
+std::cout << std::setw(s_width) << "Firstname:" << std::setw(s_width) << "Lastname:" << std::setw(s_width) << "Age:";
+std::cout << std::setw(s_width) << "Sponge:" << std::setw(s_width) << "Bob" << std::setw(s_width) << "25";
+std::cout << std::setw(s_width) << "Patrick" << std::setw(s_width) << "N/A" << std::setw(s_width) << "23";
+std::cout << std::setw(s_width) << "Squid" << std::setw(s_width) << "Ward" << std::setw(s_width) << "30";
+std::cout << std::setw(s_width) << "Mr." << std::setw(s_width) << "Crabs" << std::setw(s_width) << "35";
+
+
+//std::flush = flushes the output buffer to its final destination.
+//             After this std::flush, we're sure that at this line, the message has been sent 
+//             to the stream. This may be important in some applications.
+
+std::cout << "This is a nice message...." << std::endl << std::flush;
+
+
+//internal justifyied = makes the heading start from the left and data start from the right
+
+std::cout << std::endl;
+std::cout << "Internal justified : " << std::endl;
+std::cout << std::right;
+std::cout << std::setw(10) << -123.45 << std::endl;
+std::cout << std::internal;
+std::cout << std::setw(10) << -123.45 << std::endl;
+
+//std::setfill() = fills the spacing in between messages or data in the outpu
+//                 use in combination with std::setw()
+
+int s_width = 10;
+
+std::cout << std::left;
+std::cout << std::setfill(-);
+std::cout << std::setw(s_width) << "Firstname:" << std::setw(s_width) << "Lastname:" << std::setw(s_width) << "Age:";
+std::cout << std::setw(s_width) << "Sponge:" << std::setw(s_width) << "Bob" << std::setw(s_width) << "25";
+std::cout << std::setw(s_width) << "Patrick" << std::setw(s_width) << "N/A" << std::setw(s_width) << "23";
+std::cout << std::setw(s_width) << "Squid" << std::setw(s_width) << "Ward" << std::setw(s_width) << "30";
+std::cout << std::setw(s_width) << "Mr." << std::setw(s_width) << "Crabs" << std::setw(s_width) << "35";
+
+//boolalpha and noboolapha = control bool output format : 1/0 or true/false
+
+bool condition = true;
+bool other_condition = false;
+
+std::cout << std::endl;
+std::cout << std::boolalpha;
+std::cout << "condition : " << condition << std::endl;
+std::cout << "other_condition : " << other_condition << std::endl;
+
+std::cout << std::endl;
+std::cout << std::noboolalpha;
+std::cout << "condition : " << condition << std::endl;
+std::cout << "other_condition : " << other_condition << std::endl;
+
+//showpos and noshowpos : show or hide the +  sign for positive numbers  
+
+std::cout << std::endl;
+std::cout << std::showpos;
+std::cout << "pos_num : " << pos_num << std::endl;
+std::cout << "neg_num : " << neg_num << std::endl; 
+
+std::cout << std::endl;
+std::cout << std::noshowpos;
+std::cout << "pos_num : " << pos_num << std::endl;
+std::cout << "neg_num : " << neg_num << std::endl;  
+
+//different number systems : std::dec, std::hex, std::oct
+    
+int pos_int = 717171;
+int neg_int = -47347;
+double double_var = 498.32;
+
+std::cout << "default base format : " << std::endl;
+std::cout << "pos_int : " << pos_int << std::endl;
+std::cout << "neg_int : " << neg_int << std::endl;
+std::cout << "double_var : " << double_var << std::endl;
+    
+std::cout << std::endl;
+std::cout << "pos_int in different bases : " << std::endl;
+std::cout << "pos_int (dec) : " << std::dec << pos_int << std::endl;
+std::cout << "pos_int (hex) : " << std::hex << pos_int << std::endl;
+std::cout << "pos_int (oct) : " << std::oct << pos_int << std::endl;
+    
+std::cout << std::endl;
+std::cout << "neg_int in different bases : " << std::endl;
+std::cout << "neg_int (dec) : " << std::dec << neg_int << std::endl;
+std::cout << "neg_int (hex) : " << std::hex << neg_int << std::endl;
+std::cout << "neg_int (oct) : " << std::oct << neg_int << std::endl;
+
+std::cout << std::endl;
+std::cout << "double_var in different bases : " << std::endl;
+std::cout << "double_var (dec) : " << std::dec << double_var << std::endl;
+std::cout << "double_var (hex) : " << std::hex << double_var << std::endl;
+std::cout << "double_var (oct) : " << std::oct << double_var << std::endl;
+
+//uppercase and nouppercase
+
+pos_int = 717171;
+    
+std::cout << "pos_int (nouppercase : default) : " << std::endl;
+std::cout << "pos_int (dec) : " << std::dec << pos_int << std::endl;
+std::cout << "pos_int (hex) : " << std::hex << pos_int << std::endl;
+std::cout << "pos_int (oct) : " << std::oct << pos_int << std::endl;
+    
+std::cout << std::endl;
+std::cout << "pos_int (uppercase) : " << std::endl;
+std::cout << std::uppercase;
+std::cout << "pos_int (dec) : " << std::dec << pos_int << std::endl;
+std::cout << "pos_int (hex) : " << std::hex << pos_int << std::endl;
+std::cout << "pos_int (oct) : " << std::oct << pos_int << std::endl;
+
+//fixed and scientific : for desimal point values
+    
+double a = 3.1415926535897932384626433832795;
+double b = 2006.0;
+double c = 1.34e-10;
+    
+std::cout << std::endl;
+std::cout << "double values (default : use scientific where necessary) : " << std::endl;
+std::cout << "a : " << a << std::endl;
+std::cout << "b : " << b << std::endl;
+std::cout << "c : " << c << std::endl;
+ 
+std::cout << std::endl;
+std::cout << "double values (fixed) : " << std::endl;
+std::cout << std::fixed;
+std::cout << "a : " << a << std::endl;
+std::cout << "b : " << b << std::endl;
+std::cout << "c : " << c << std::endl;
+    
+std::cout << std::endl;
+std::cout << "double values (scientific) : " << std::endl;
+std::cout << std::scientific;
+std::cout << "a : " << a << std::endl;
+std::cout << "b : " << b << std::endl;
+std::cout << "c : " << c << std::endl;
+
+std::cout << std::endl;
+std::cout << "double values (back to defaults) : " << std::endl;
+std::cout.unsetf(std::ios::scientific | std::ios::fixed); // Hack, you'll understand in the future
+std::cout << "a : " << a << std::endl;
+std::cout << "b : " << b << std::endl;
+std::cout << "c : " << c << std::endl;
+
+//setprecision() : the number of digits printed out for a decimal point. Default is 6 
+a = 3.1415926535897932384626433832795;
+    
+std::cout << std::endl;
+std::cout << "a (default precision(6)) : " << a <<  std::endl;
+std::cout << std::setprecision(10);
+std::cout << "a (precision(10)) : " << a << std::endl;
+std::cout << std::setprecision(20);
+std::cout << "a (precision(20)) : " << a << std::endl;
+
+//NOTE: If the precision is bigger than supported by the type then you'll just print junk.
+
+//showpoint and noshowpoint : show trailing zeros if necessary
+//Force output of the decimal point
+    
+double d {34.1};
+double e {101.99};
+double f {12.0};
+int    g {45};
+
+std::cout << std::endl;
+std::cout << "noshowpoint (default) : " << std::endl;
+std::cout << "d : " << d << std::endl;
+std::cout << "e : " << e << std::endl;
+std::cout << "f : " << f << std::endl; // 12
+std::cout << "g : " << g << std::endl;
+    
+std::cout << std::endl;
+std::cout << "showpoint: " << std::endl;
+std::cout << std::showpoint;
+std::cout << "d : " << d << std::endl;
+std::cout << "e : " << e << std::endl;
+std::cout << "f : " << f << std::endl; // 12.0
+std::cout << "g : " << g << std::endl;

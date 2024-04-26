@@ -1,0 +1,391 @@
+# if statement:
+meaning = 42
+print('')
+
+if meaning > 10:
+    print('Right on!')
+else:
+    print('Not today')
+
+# Ternary Operator:
+
+print('Right on!') if meaning > 10 else print('Not today')
+
+
+# Try / except statements
+var1 = "hello world"
+try:
+    var1 = int(var1)
+except:
+    var1 = -1
+print(var1)
+
+var2 = "10"
+try:
+    var2 = int(var2)
+except:
+    var2 = -1
+print(var2)
+
+
+# while loops:
+while player > 0 or player <= 3:
+    playerChoice = input("Enter your choice:\n 1 for Rock\n 2 for Paper\n 3 for Sissors\n\n")
+    try:
+        player = int(playerChoice)
+        break
+    except:
+        print("INVALID_CHCOICE_ENTERED")
+
+
+# literal assignment:
+# stright up assign the value
+first = "Dave"
+last = "Gray"
+
+print(type(first))
+print(type(first) == str)
+print(isinstance(first, str))
+
+# constructor function:
+pizza = str("Pepperoni")
+print(type(pizza))      # showes the veriable type
+print(type(pizza) == str)       # showes if the veriable if equal to somthing, returns True or False
+print(isinstance(pizza, str))       #same as the last one
+
+# Concatenation:
+# add 2 or more strings
+fullname = first + " " + last
+print(fullname)
+
+fullname += "!"     # this adds a ! to the end of the string
+print(fullname)
+
+# Casting a number to a string:
+decade = str(1980) 
+print(type(decade))
+print(decade)
+
+statement = "I like rock music from the " + decade + "s."
+print(statement)
+
+# Multiple lines:
+multiline = '''
+Hey, how are you?                                   
+
+I was just checking in.    
+                                All good?
+
+'''
+print(multiline)
+
+# Escaping special characters:
+sentence = 'I\'m back at work!\tHey!\n\nWhere\'s this at\\located?'
+print(sentence)
+
+# String Methods:
+print(first)
+print(first.lower())
+print(first.upper())
+
+print(multiline.title())    # makes the first letter of every word capital
+print(multiline.replace("good", "ok"))
+print(multiline)
+
+print(len(multiline))
+multiline += "                                        "
+multiline = "                  " + multiline
+print(len(multiline))
+
+print(len(multiline.strip()))       # removes all whitespaces
+print(len(multiline.lstrip()))       # removes all whitespaces from the left until it finds a charecter
+print(len(multiline.rstrip()))       # removes all whitespaces from the right until it finds a charecter
+
+# Build a menu:
+title = "menu".upper()
+print(title.center(20, "="))        # this prints 20 '='s and replaces the center with the "title" veriable
+print("Coffee".ljust(16, ".") + "$1".rjust(4))      # the first part starts from the left and the last part starts form the right
+print("Muffin".ljust(16, ".") + "$2".rjust(4))
+print("Cheesecake".ljust(16, ".") + "$4".rjust(4))
+
+# string index values
+print(first[1])         # prints the 2nd letter in "first"   = a
+print(first[-1])         # prints the last letter in "first"   = e
+print(first[1:-1])         # prints every charecter between D and a   = ev
+print(first[1:])         # prints everything after the first charecter  = ave
+
+# Some methods return boolean data
+print(first.startswith("D"))        # True
+print(first.endswith("Z"))        # False
+
+# use print(dir(str)) to get more commands
+
+# example of things you can do with string methods:
+# email finder
+data = "Masud <masud.mailbox@gmail.com> Wed, Mar 27, 12:36 PM (12 days ago)"
+
+start_strip = data.find("<")
+end_strip = data.find(">")
+
+email = data[start_strip+1: end_strip]
+print(email)
+
+
+# Boolean data type
+myvalue = True
+x = bool(False)
+print(type(x))
+print(isinstance(myvalue, bool))
+
+# Numeric data types
+
+# integer type
+price = 100
+best_price = int(80)
+print(type(price))
+print(isinstance(best_price, int))
+
+# float type
+gpa = 3.28
+y = float(1.14)
+print(type(gpa))
+
+# complex type
+comp_value = 5+3j
+print(type(comp_value))
+print(comp_value.real)
+print(comp_value.imag)
+
+# Built-in functions for numbers
+
+print(abs(gpa))
+
+print(abs(gpa * -1))
+
+print(round(gpa))
+
+print(round(gpa, 1))
+
+
+print(math.pi)
+print(math.sqrt(64))
+print(math.ceil(gpa))
+print(math.floor(gpa))
+
+# Casting a string to a number
+zipcode = "10001"
+zip_value = int(zipcode)
+print(type(zip_value))
+
+# Error if you attempt to cast incorrect data
+# zip_value = int("New York")
+
+
+# Lists (basicly arrays):
+numbers = [39, 28, 12, 69, 30, 82, 99]
+friends = ["kevin", "bob", "jonny", "mia", "nasifa", "jonny"]
+identity = [abel, 34, True]
+
+print(friends)        # prints "friends"
+
+print(friends[0])        # prints the value at index 0 = kevin
+
+print(friends[-2])        # prints the 2 number, counting from the back
+
+print(friends[2:])        #  prints every value from index 2
+
+print(friends[2:4])        # prints every value from index 2 upto but not including index 4
+
+friends[1] = "jimmy"        # replaces "bob" at index 1 with "jimmy"
+
+friends.extend(numbers)        # adds every value in "numbers" to "friends" from the end
+
+friends.append("bopendrajogi")        # adds "bopendrajogi" to the end of "friends"
+
+friends.insert(2, "billy")        # adds "billy" to index 2, moves every other value to the right by one index
+
+friends.remove("kevin")        # removes "kevin"
+
+friends.clear()        # clears the whole array
+
+friends.pop()        # pops of 1 value from the very end of the array
+
+print(friends.index("nasifa"))        # finds the index of wife
+
+print(friends.count("jonny"))        # counts how many times jonny is in the array
+
+friends.sort()        # sorts the array
+numbers.sort()
+
+numbers.reverse()        # reverses all values in the array
+
+friends2 = friends.copy()        # copies every value from "friends" to "friends2"
+
+print(len(friends))        # prints the number of values or items in the array
+
+# use print(dir(list)) to get more commands
+
+# print everything in a list:
+
+for friend in fiends:
+    print(friend)
+
+# prints everything in a list by remembering the position:
+for i in range(len(friends)):
+    friend = friends[i]
+    print(friend)
+
+# splitting a string into a list:
+# this splits every word from the whitespaces in sentence into a seprete item in the list
+# you can also chose from wich charecter you want to split by passing that charecter in the perameters
+
+sentence = "I am hungry"
+array = sentence.split()        # Output : [I, am, hungry]
+
+
+# file reading:
+
+# counting lines:
+with open('File path') as file:
+    file_content = file.read()
+
+line_count = 0
+
+for line in file_content:
+    line_count = line_count + 1
+
+# reading the file:
+with open('File path') as file:
+    file_content = file.read()
+
+# searching through a file:
+with open('File path') as file:
+    file_content = file.read()
+
+for line in file_content.split('\n'):
+    if line.startswith('From:'): 
+        print(line)
+
+# or
+
+for line in file_content.split('\n'):
+    if not line.startswith('From:'): 
+        continue
+    print(line)
+
+# counting lines in a file with user input:
+
+file_name = input("Enter a file path: \n")
+
+try:
+    with open(file_name) as file:
+        file_content = file.read()
+except:
+    print("ERROR: File name ", file_name, " cannot be opend")
+    quit()
+
+count = 0
+
+for line in file_content:
+    count = count + 1
+print("There were ", count, "lines in ", file_name)
+
+
+# Dictionaries:
+# baisicly an array, but every value has a name or key insted of an index, and they're unordered
+# baisicly a bag of items but each item has a diffrent name
+
+bag = {"bill": "sunglasses", "bob": "lotion", "jonny": "lube"}
+
+bag["nasifa"] = "noodles"        # adds "nasifa" with the value as "noodles" to the dictionary
+
+bag["bob"] = "gun"        # reassignes the value for "bob" from "lotion" to "gun"
+
+bag.get("jonny", 0)        # finds and prints the value named "jonny", remember to add 0 so if it dosent find the item name, then it just returns 0
+
+print(list(bag))        # prints only the names of the values as a list
+
+print(bag.keys())        # prints only the names or keys of the values as a list
+
+print(bag.values())        # prints only the values in the dictionary as a list
+
+# checklist thingy to check how many of what are in the list:
+counts = {}
+names = ["John", "John", "John", "Emily", "Emily", "Michael", "John", "Emily", "Michael", "Michael", "Emily", "John", "Emily", "Michael", "John", "Emily", "Michael", "John", "Emily", "Michael"]
+
+for name in names:
+    counts[name] = counts.get(name, 0) + 1
+print(counts)
+
+#or
+
+counts = {}
+raw_names = input("Enter the names you want to talli up: \n")
+names = raw_names.split()
+
+for name in names:
+    counts[name] = counts.get(name, 0) + 1
+print(counts)
+
+# printing all items and item values in another way:
+counts = {"bill": "sunglasses", "bob": "lotion", "jonny": "lube"}
+
+for key in counts:
+    print(key, counts[key])
+
+# or
+
+for key, value in counts.items():
+    print(key, value)
+
+
+# Tuples:
+# basicly just unmodifyiable Lists, and more efficient than Lists
+# mostly used for temporary veriables
+
+tup1 = (1, 2, 3)
+tup2 = (4, 5, 6)
+tup3 = (1, 2, 2, 3, 4, 2)
+
+print(tup1[2])        # prints "3"
+
+print(tup.items())        # prints out everything in the dictionary as a list
+
+my_tuple = 23, 67, 98        # this packs the values of the tuple into "my_tuple"
+x, y, z = my_tuple        # this unpacks them and assigns them to each veriable right away
+
+result = tup1 + tup2        # attches one tuple to the end of another tuple
+
+result = tup1 * 2        # adds the same tuple 2 times back to back
+
+print(2 in tup1)        # checks if '2' is in 'tup1' or not, if not then returns False
+
+print(tup3.count(2))        # counts how many times the value 2 is in "tup3"
+
+# printing each seprete tuple from a list:
+my_tuples = [(1, 2), (3, 4), (5, 6)]
+for tpl in my_tuples:
+    print(tpl)
+
+# turning a dictionary defenitions into tuples:
+dic = {}
+dic["name"] = "jonny"
+dic["num"] = 69
+
+tup = dic.items()
+print(tup)        # output = dict_items([('name', 'jonny'), ('age', 69)])
+
+# sorting a list of tuples (yes u can do that):
+dic = {'a': 96, 'c': 39, 'b': 2}
+tup = dic.items()
+
+print(sorted(tup))
+
+# sorting a list of tuples by value(smallest to largest):
+dic = {'a': 96, 'c': 39, 'b': 2}
+tup = []
+
+for k,v in dic.items():
+    tup.append((v, k))
+
+print(sorted(tup))        # you can also sort from largest to smallest by typing print(sorted(tup, reverse=True)) insted

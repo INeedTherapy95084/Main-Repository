@@ -1,0 +1,20 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+h1,
+h2,
+nav {
+    text-align: center;
+}
+
+a:hover {
+    color: lightcoral;
+    font-size: 20px;
+}
+
+#popeffect:hover,
+b:hover {
+    font-size: 28px;
+}

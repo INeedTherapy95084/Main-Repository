@@ -1,0 +1,14 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+}
+
+img#float {
+    height: 100px;
+    width: 115px;
+    float: left;
+}
