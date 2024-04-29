@@ -47,7 +47,7 @@ int main() {
  do{
     cout << "\n**************** ATM ****************" << '\n' << '\n';
     cout << "Welcome to the ATM \nPlease enter your choice: " << '\n';
-    cout << "1. Show balance\n" << "2. Deposit\n" << "3. Withdraw\n" << "4. Exit\n" << "(Please enter a digit only)\n";
+    cout << "1. Show balance\n" << "2. Deposit\n" << "3. Withdraw\n" << "4. Exit\n";
     cin >> choice;
    
     switch(choice){
