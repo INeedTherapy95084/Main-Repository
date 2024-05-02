@@ -4,7 +4,7 @@ os.system("cls")
 file_name = input("Enter a file path: \n")
 
 try:
-    with open(file_name) as file:
+    with open(file_name, encoding='utf-8') as file:
         file_content = file.readlines()
 except FileNotFoundError:
     print("ERROR: File name ", file_name, " cannot be opend")
