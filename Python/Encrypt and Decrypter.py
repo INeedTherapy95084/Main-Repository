@@ -124,7 +124,7 @@ def main(PASSWORD):
         if choice.isdigit():
             choice = int(choice)
             os.system('cls')
-            if choice < 5 and choice > 0:
+            if choice < 6 and choice > 0:
                 if choice == 1:
                     message = input("Write the message you want to encrypt:\n")
                     encrypt_message = coded_message(message)
@@ -153,6 +153,15 @@ def main(PASSWORD):
                         file_path = input("Enter the file path of the file you want to decrypt:\n")
                         os.system('cls')
                         decode_file(file_path)
+                        break
+                    else:
+                        print("INVALID_PASSWORD_")
+                        break
+                elif choice == 5:
+                    entered_password = getpass.getpass("Enter password:\n")
+                    if entered_password == PASSWORD:
+                        os.system('cls')
+                        print(create_key_to_code_decode())
                         break
                     else:
                         print("INVALID_PASSWORD_")
