@@ -114,7 +114,7 @@ if len(temp) >= 11:
     temp = temp[11]
 
 
-def main(PASSWORD):
+def main(password):
     while True:
         choice = input("""What do you want to do?:
                         1. Encrypt a text that I input
@@ -137,7 +137,7 @@ def main(PASSWORD):
                     break
                 elif choice == 3:
                     entered_password = getpass.getpass("Enter password:\n")
-                    if entered_password == PASSWORD:
+                    if entered_password == password:
                         os.system('cls')
                         file_path = input("Enter the file path of the file you want to encrypt:\n")
                         os.system('cls')
@@ -148,7 +148,7 @@ def main(PASSWORD):
                         break
                 elif choice == 4:
                     entered_password = getpass.getpass("Enter password:\n")
-                    if entered_password == PASSWORD:
+                    if entered_password == password:
                         os.system('cls')
                         file_path = input("Enter the file path of the file you want to decrypt:\n")
                         os.system('cls')
@@ -159,7 +159,7 @@ def main(PASSWORD):
                         break
                 elif choice == 5:
                     entered_password = getpass.getpass("Enter password:\n")
-                    if entered_password == PASSWORD:
+                    if entered_password == password:
                         os.system('cls')
                         print(create_key_to_code_decode())
                         break
