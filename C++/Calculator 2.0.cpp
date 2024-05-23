@@ -21,7 +21,7 @@ int main()
       cout << "ERROR_INVALID_VALUE_" << endl;
       cin.clear();
     }
-  } while (cin.fail());
+  } while (num1 != num1/1);
 
   do
   {
