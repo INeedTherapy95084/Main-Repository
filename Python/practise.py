@@ -4,6 +4,7 @@ def swaplist(newlist):
     temp = newlist[0]
     newlist[0] = newlist[size - 1]
     newlist[size - 1] = temp
+    return newlist
 
 mainlist = [1, 2, 3]
-print(mainlist)
+print(swaplist(mainlist))
