@@ -103,7 +103,6 @@ if inp == PASSWORD :
                         time.sleep(5)
                         os.system('cls')
                         
-                        
                         cl = Client()
                         cl.login(ACCOUNT_USERNAME, ACCOUNT_PASSWORD)
 
