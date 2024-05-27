@@ -150,15 +150,17 @@ def main(balance, wallet):
         printSlotMachine(slots)
         winnings, winning_lines = check_winnings(slots, lines, bet, symbols)
         print(f"You won ${winnings}.")
-        print("You won on lines:", *winning_lines)
+        winning_lines = int(*winning_lines)
+        if winning_lines >= 1:
+            print("You won on lines:", winning_lines)
         balance += winnings
         print(f"Your current balance is ${balance}")
         print(f"You have ${wallet} left in your wallet")
-        if wallet != 0:
-            play_again(balance, wallet)
+        if wallet == 0 and balance == 0:
+            print("You ran out of money because you played too much, now get out")
             break
         else:
-            print("You ran out of money because you played too much, now get out")
+            play_again(balance, wallet)
             break
     return 0
 

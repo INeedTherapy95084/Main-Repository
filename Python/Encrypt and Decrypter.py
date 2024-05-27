@@ -105,7 +105,7 @@ def decode_file(file_path):
         quit()
     
     
-with open(r"E:\vscode\Python\passwords.txt", encoding='utf-8') as file:
+with open(r"E:\vscode\Main-Repository\Python\passwords.txt", encoding='utf-8') as file:
     temp = file.read()
     if not temp.startswith('p'):
         temp = decoded_message(temp)

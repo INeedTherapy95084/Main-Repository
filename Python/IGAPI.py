@@ -4,7 +4,7 @@ import getpass
 import time
 os.system('cls')
 
-file_path = r"E:\vscode\Python\passwords.txt"
+file_path = r"E:\vscode\Main-Repository\Python\passwords.txt"
 
 def decode_password(file_data):
     KEY_OF_WORD = {'a': ['w', 'ぬ'], 'b': ['#', '('], 'c': ['р', '5'], 'd': ['O', 'В'], 'e': ['m', 'う'], 'f': [')', 'у'], 'g': ['ち', 'z'],
@@ -42,10 +42,37 @@ def get_password():
 
     return password
 
-temp = get_password()
-PASSWORD = temp
+def get_password2():
+    password = None
+    with open(file_path, encoding='utf-8') as f:
+        temp = f.read()
+        temp = decode_password(temp)
+        temp = temp.split()
+    if len(temp) >= 2:
+        password = temp[5]
 
-inp = input("Enter File Password:\n")
+    return password
+
+def get_password3():
+    password = None
+    with open(file_path, encoding='utf-8') as f:
+        temp = f.read()
+        temp = decode_password(temp)
+        temp = temp.split()
+    if len(temp) >= 2:
+        password = temp[11]
+        
+    return password
+
+temp = get_password()
+temp2 = get_password2()
+temp3 = get_password3()
+
+PASSWORD = temp
+PASSWORD2 = temp2
+PASSWORD3 = temp3
+
+inp = getpass.getpass("Enter File Password:\n")
 
 os.system('cls')
 
@@ -58,16 +85,20 @@ if inp == PASSWORD :
         inp = inp.lower()
         os.system('cls')
         if inp == 'y':
-            with open(file_path, encoding='utf-8') as f:
-                temp = f.read()
-                temp = decode_password(temp)
-                temp = temp.split()
-            if len(temp) >= 3:
-                ACCOUNT_PASSWORD = temp[2]
+            inp = getpass.getpass("Enter Password:\n")
+            if inp == PASSWORD2:
+                with open(file_path, encoding='utf-8') as f:
+                    temp = f.read()
+                    temp = decode_password(temp)
+                    temp = temp.split()
+                if len(temp) >= 3:
+                    ACCOUNT_PASSWORD = temp[2]
+                else:
+                    print("ERROR_COULD_NOT_FIND_PASSWORD_")
+                    
+                ACCOUNT_USERNAME = '_i_need_therapy_2284'
             else:
-                print("ERROR_COULD_NOT_FIND_PASSWORD_")
-                
-            ACCOUNT_USERNAME = '_i_need_therapy_2284'
+                quit()
         else:
             ACCOUNT_USERNAME = input("Enter your IG username:\n")
             os.system('cls')
@@ -79,39 +110,41 @@ if inp == PASSWORD :
         os.system('cls')
         
         if inp == 'y': 
-            
-            inp = input("Are you SHUREEE that you want to exicute this code?(y/n): ")
-            inp = inp.lower()
             os.system('cls')
-        
-            if inp == 'y':
-                
-                inp = input("Are you ABSOLUTELY SHUREEE that you want to exicute this code?!(y/n): ")
+            inp = getpass.getpass("Enter Password:\n")
+            if inp == PASSWORD3:
+                inp = input("Are you SHUREEE that you want to exicute this code?(y/n): ")
                 inp = inp.lower()
                 os.system('cls')
-                
+            
                 if inp == 'y':
                     
-                    inp = input("ARE YOU ABSOLUTELY AND WITH OUT A DOUBT SHUREEE THAT, YOU. WANT. TO. EXICUTE. THIS. CODE?!?!(y/n): ")
+                    inp = input("Are you ABSOLUTELY SHUREEE that you want to exicute this code?!(y/n): ")
                     inp = inp.lower()
                     os.system('cls')
-        
-                    if inp == 'y':
                     
-                        print("FINEE STUIT YOURSELF, DONT BLAME ME IF YOUR ACCOUNT GETS BANNED")
-                        print("\nLOADING YOUR GODDAMN SCRIPT YOU STUBBORN-USER...")
-                        time.sleep(5)
-                        os.system('cls')
+                    if inp == 'y':
                         
-                        cl = Client()
-                        cl.login(ACCOUNT_USERNAME, ACCOUNT_PASSWORD)
+                        inp = input("ARE YOU ABSOLUTELY AND WITH OUT A DOUBT SHUREEE THAT, YOU. WANT. TO. EXICUTE. THIS. CODE?!?!(y/n): ")
+                        inp = inp.lower()
+                        os.system('cls')
+            
+                        if inp == 'y':
+                        
+                            print("FINEE STUIT YOURSELF, DONT BLAME ME IF YOUR ACCOUNT GETS BANNED")
+                            print("\nLOADING YOUR GODDAMN SCRIPT YOU STUBBORN-USER...")
+                            time.sleep(5)
+                            os.system('cls')
+                            
+                            # cl = Client()
+                            # cl.login(ACCOUNT_USERNAME, ACCOUNT_PASSWORD)
 
-                        followers = cl.user_followers(cl.user_id)
-                        for user_id in followers.keys():
-                            user_info = cl.user_info(52932375530)
-                            print(user_info)
+                            # followers = cl.user_followers(cl.user_id)
+                            # for user_id in followers.keys():
+                            #     user_info = cl.user_info(52932375530)
+                            #     print(user_info)
 
 
 
-                        # cl.direct_send('How are you?', user_ids=[])  
-                        # print('program ended sucsessfully')
+                            # cl.direct_send('How are you?', user_ids=[])  
+                            print('PROGRAM ENDED SUCSESSFULLY')

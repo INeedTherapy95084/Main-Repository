@@ -11,9 +11,15 @@ no_guess = 0
 print("******* GUESSING THE NUMBER GAME *******\n")
 
 while guess != rand_num:
-    guess = input("Guess the number(1-100): \n")
-
-    guess = int(guess)
+    while True:
+        guess = input("Guess the number(1-100): \n")
+        try:
+            guess = int(guess)
+            break
+        except:
+            print("ERROR_TRY_AGAIN_")
+            continue
+        
     
     if guess < rand_num:
         print("Too low")
@@ -27,4 +33,4 @@ while guess != rand_num:
     
 print("\nCorrect! You guessed it in" , no_guess, "tries\n")
 
-print("**************************************")
+print("****************************************")

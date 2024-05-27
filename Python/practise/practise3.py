@@ -1,5 +1,11 @@
-def comparenums(.):
-
+def max(a, b):
+    if a > b:
+        return a
+    elif a < b:
+        return b
+    else:
+        return f"{a} = {b}"
+    
 while True:
     num1 = input("type the first number you want to compare:\n")
     try:
@@ -15,11 +21,11 @@ while True:
     num2 = input("type the second number you want to compare:\n")
     try:
         num2 = int(num2)
-        if num2 > 0:
+        if num2 > 0:  
             break
         else:
             continue
     except:
         continue
     
-print(comparenums(num1, num2))
+print(max(num1, num2))
