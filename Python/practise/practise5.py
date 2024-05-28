@@ -1,5 +1,6 @@
 def palindrome(a):
-    mid = (len(a)-1)//2  
+    mid = (len(a)-1)//2
+    print(mid)  
     start = 0 
     last = len(a)-1
     flag = 0
@@ -19,4 +20,6 @@ def palindrome(a):
     else:
         print("The entered string is not palindrome")
         
+name = "amkkma"
 
+palindrome(name)
