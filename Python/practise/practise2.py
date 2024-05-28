@@ -8,9 +8,8 @@ def swappos(newlist, pos1, pos2):
 
 mainlist = [1, 2, 3, 4, 5]
 while True:
-    pos1 = input("type the position of the first index you want to change:\n")
     try:
-        pos1 = int(pos1)
+        pos1 = int(input("type the position of the first index you want to change:\n"))
         if pos1 > 0:
             break
         else:
@@ -19,9 +18,8 @@ while True:
         continue
     
 while True:
-    pos2 = input("type the position of the second index you want to change:\n")
     try:
-        pos2 = int(pos2)
+        pos2 = int(input("type the position of the second index you want to change:\n"))
         if pos2 > 0:
             break
         else:
