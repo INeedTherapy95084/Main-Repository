@@ -20,6 +20,6 @@ def palindrome(a):
     else:
         print("The entered string is not palindrome")
         
-name = "amkkma"
+name = "amkma"
 
 palindrome(name)
