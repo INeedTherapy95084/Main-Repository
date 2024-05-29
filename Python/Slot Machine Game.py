@@ -129,7 +129,7 @@ def main(balance, wallet):
                     U_inp = int(U_inp)
                     if U_inp == 1:
                         os.system('cls')
-                        balance, wallet = deposit(balance, wallet)
+                        balance, wallet = deposit(balance, wallet) # type: ignore
                         continue
                     if U_inp == 2:
                         os.system('cls')
