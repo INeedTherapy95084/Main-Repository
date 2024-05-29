@@ -8,4 +8,5 @@ def reverse_string(string):
     return l
 
 string = input("Type a sentance:\n")
+
 print(" ".join(reverse_string(string)))
