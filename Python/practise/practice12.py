@@ -5,14 +5,14 @@ dctKeys.sort()
 dctValues = list(dct.values())
 dctValues.sort()
 
-sorted_dict = {}
-
+sorted_dct = {}
 count = 0
 
 for i in dctKeys:
     while True:
-        sorted_dict[i] = dctValues[count]
+        sorted_dct[i] = dctValues[count]
         count += 1
         break
 
-print(sorted_dict)
+print(dct)
+print(sorted_dct)
