@@ -17,8 +17,6 @@ while True:
     if firstnum == 'quit' or firstnum == 'Quit':
             break
 
-    op = None
-
     while True:
         op = input("Enter an operator (+, -, *, /): \n")
         if op == 'quit' or op == 'Quit':
