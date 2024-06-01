@@ -1,6 +1,22 @@
 import os
 os.system('cls')
 
+def result(firstnum, op, secondnum):
+    if op == '+':
+        result = firstnum + secondnum
+    elif op == '-':
+        result = firstnum - secondnum
+    elif op == '*':
+        result = firstnum * secondnum
+    elif op == '/':
+        if secondnum == 0:
+            print("ERROR: Division by zero is not allowed.")
+            exit()
+        else:
+            result = firstnum / secondnum
+            
+    return result
+
 while True:
     print("\n***************** CALCULATOR *****************\n")
 
@@ -42,18 +58,8 @@ while True:
     if secondnum == 'quit' or secondnum == 'Quit':
             break
 
-    if op == '+':
-        result = firstnum + secondnum
-    elif op == '-':
-        result = firstnum - secondnum
-    elif op == '*':
-        result = firstnum * secondnum
-    elif op == '/':
-        if secondnum == 0:
-            print("ERROR: Division by zero is not allowed.")
-        else:
-            result = firstnum / secondnum
+    
 
-    print("\nResult:", result)
+    print("\nResult:", result(firstnum, op, secondnum))
 
 print("\n**********************************************")
