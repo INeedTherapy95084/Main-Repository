@@ -9,10 +9,6 @@ def result(firstnum, op, secondnum):
     elif op == '*':
         result = firstnum * secondnum
     elif op == '/':
-        if secondnum == 0:
-            print("ERROR: Division by zero is not allowed.")
-            exit()
-        else:
             result = firstnum / secondnum
             
     return result
@@ -51,7 +47,11 @@ while True:
             break
         try:
             secondnum = int(secondnum)
-            break
+            if secondnum == 0 and op == '/':
+                print("\nERROR: Division by zero is not allowed.\n")
+                continue
+            else:
+                break
         except:
             print("ERROR_INVALID_VALUE_\n")
             continue
