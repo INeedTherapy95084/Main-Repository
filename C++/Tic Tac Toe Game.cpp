@@ -14,6 +14,7 @@ void drawBored(char *spaces){
   cout << "  " << spaces[6] << "  |  " << spaces[7] << "  |  " << spaces[8] << "  ";
   cout << "\n     |     |     " << '\n' << '\n';
 }
+
 void playerMove(char *spaces, char playerC){
   int num;
   do{
@@ -26,8 +27,8 @@ void playerMove(char *spaces, char playerC){
       break;
     }
   }while(!(num > 0 && num < 8));
-
 }
+
 void computerMove( char *spaces, char compC){
   int num;
   srand(time(NULL));
@@ -40,6 +41,7 @@ void computerMove( char *spaces, char compC){
   }
 
 }
+
 bool checkWinner(char *spaces, char playerC, char compC, int &score){
 
   if(spaces[0] != ' ' && spaces[0] == spaces[1] && spaces[1] == spaces[2]){
