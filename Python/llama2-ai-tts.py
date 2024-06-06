@@ -29,7 +29,7 @@ def ask(query):
                 'content': query,
             },
         ])
-        response = response['message']['content']
+        response = response['message']['content'] # type: ignore
 
         return response
 
