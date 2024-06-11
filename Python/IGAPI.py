@@ -4,7 +4,7 @@ import getpass
 import time
 os.system('cls')
 
-file_path = r"E:\vscode\Main-Repository\Python\passwords.txt"
+file_path = r"E:\vscode\passwords.txt"
 
 def decode_password(file_data):
     KEY_OF_WORD = {'a': ['w', 'ぬ'], 'b': ['#', '('], 'c': ['р', '5'], 'd': ['O', 'В'], 'e': ['m', 'う'], 'f': [')', 'у'], 'g': ['ち', 'z'],
