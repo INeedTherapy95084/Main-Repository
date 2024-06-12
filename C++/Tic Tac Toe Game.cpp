@@ -26,7 +26,7 @@ void playerMove(char *spaces, char playerC){
        spaces[num] = playerC;
       break;
     }
-  }while(!(num > 0 && num < 8) && !num/1);
+  }while(num >! 0 && num <! 8 && num != num/1);
 }
 
 void computerMove( char *spaces, char compC){
