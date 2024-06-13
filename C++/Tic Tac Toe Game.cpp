@@ -20,18 +20,13 @@ void playerMove(char *spaces, char playerC){
   do{
     cout << "Enter the space you want to place your marker(1-9): \n";
     cin >> num;
-    if(isalnum(num)){
-      cout << num;
-      num--;
-      if(spaces[num] == ' ' && num >! 0 && num <! 8 && num != num/1){
-        spaces[num] = playerC;
-        break;
-      }
+    num--;
+
+    if(spaces[num] == ' '){
+      spaces[num] = playerC;
+      break;
     }
-    else{
-        cin.clear();
-      }
-  }while(true);
+  }while(num >! 0 && num <! 8 && num != num/1);
 }
 
 void computerMove( char *spaces, char compC){
