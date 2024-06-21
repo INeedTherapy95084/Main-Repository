@@ -173,5 +173,6 @@ def main(password):
             print("\nERROR_INVALID_INPUT_\n")
             continue
 
-PASSWORD = temp
-main(PASSWORD)
+if __name__ == "__main__":
+    PASSWORD = temp
+    main(PASSWORD)

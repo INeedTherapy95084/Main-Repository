@@ -1,44 +1,20 @@
 from instagrapi import Client
+from Encrypt_and_Decrypter import decoded_message as decode
 import os
 import getpass
 import time
 os.system('cls')
 
 file_path = r"E:\vscode\passwords.txt"
-
-def decode_password(file_data):
-    KEY_OF_WORD = {'a': ['w', 'ぬ'], 'b': ['#', '('], 'c': ['р', '5'], 'd': ['O', 'В'], 'e': ['m', 'う'], 'f': [')', 'у'], 'g': ['ち', 'z'],
-               'h': ['П', 'I'], 'i': ['?', 'よ'], 'j': ['に', 'H'], 'k': ['е', 'С'], 'l': ['か', 'Г'], 'm': ['る', 'E'], 'n': ['B', 'ほ'],
-               'o': ['н', 'も'], 'p': ['へ', 'ら'], 'q': ['>', 'i'], 'r': ['я', 'U'], 's': ['в', 'a'], 't': ['c', 'з'], 'u': ['З', 'м'],
-               'v': ['э', '2'], 'w': ['1', '['], 'x': ['ы', 'й'], 'y': ['む', 'ご'], 'z': ['n', 'ん'], ' ': ['G', 'さ'], 'A': ['y', 'k'],
-               'B': ['ぐ', 'と'], 'C': ['.', 'て'], 'D': ['а', 'ь'], 'E': ['X', 'g'], 'F': ['*', '0'], 'G': ['о', 'た'], 'H': ['D', 'こ'],
-               'I': ['f', 'の'], 'J': ['$', 'Е'], 'K': ['r', '4'], 'L': ['M', 'P'], 'M': ['г', 'W'], 'N': ['u', 'М'], 'O': ['Л', 'は'],
-               'P': ['ゆ', 'Ж'], 'Q': ['|', 'ч'], 'R': ['%', 'が'], 'S': ['8', 'К'], 'T': ['あ', 'ж'], 'U': ['ひ', 'Б'], 'V': ['6', '<'],
-               'W': ['す', 'く'], 'X': ['げ', 'ъ'], 'Y': ['お', 'ц'], 'Z': ['ろ', 'ふ'], '0': ['Q', 'п'], '1': ['わ', '^'], '2': ['Н', 'き'],
-               '3': ['り', 'え'], '4': ['み', 'щ'], '5': ['せ', 'J'], '6': ['х', 'Z'], '7': ['И', 'Т'], '8': ['A', 'б'], '9': ['3', 'K'],
-               '!': ['ま', 'Y'], '"': [':', 'を'], '#': ['{', '&'], '$': ['S', 'め'], '%': ['!', 'N'], '&': ['x', ']'], "'": ['そ', 'な'],
-               '(': ['О', 'R'], ')': ['れ', 'т'], '*': ['с', 'o'], '+': ['j', 'Й'], ',': ['F', 'к'], '-': ['д', ';'], '.': ['ф', 'け'],
-               '/': ['p', '_'], ':': ['や', '`'], ';': ['e', 'l'], '<': ['ю', 'd'], '=': ['q', '"'], '>': ['~', '+'], '?': ['А', 's'],
-               '@': [',', 'v'], '[': ['7', 'T'], ']': ['し', 'C'], '^': ['ш', 'h'], '_': ['Р', 'つ'], '`': ['=', 'ね'], '{': ['L', '-'],
-               '|': ['ぎ', 'Д'], '}': ['и', 'V'], '~': ['t', '}'], '\\': ['b', '9'], '\n': ['い', 'л']}
-    
-    coded_list = list(file_data)
-    decoded_word = ""
-    for coded_word in coded_list:
-        for word in list(KEY_OF_WORD):
-            if coded_word in KEY_OF_WORD[word]:
-                decoded_word += word
-
-    return decoded_word
-    
-def get_password():
+  
+def get_password(num):
     password = None
     with open(file_path, encoding='utf-8') as f:
         temp = f.read()
-        temp = decode_password(temp)
+        temp = decode(temp)
         temp = temp.split()
     if len(temp) >= 2:
-        password = temp[2]
+        password = temp[num]
 
     return password
 
@@ -46,7 +22,7 @@ def get_password2():
     password = None
     with open(file_path, encoding='utf-8') as f:
         temp = f.read()
-        temp = decode_password(temp)
+        temp = decode(temp)
         temp = temp.split()
     if len(temp) >= 2:
         password = temp[5]
@@ -57,16 +33,19 @@ def get_password3():
     password = None
     with open(file_path, encoding='utf-8') as f:
         temp = f.read()
-        temp = decode_password(temp)
+        temp = decode(temp)
         temp = temp.split()
     if len(temp) >= 2:
         password = temp[11]
         
     return password
 
-temp = get_password()
-temp2 = get_password2()
-temp3 = get_password3()
+temp = get_password(2)
+print(get_password(2))
+temp2 = get_password(5)
+print(get_password(5))
+temp3 = get_password(11)
+print(get_password(11))
 
 PASSWORD = temp
 PASSWORD2 = temp2
@@ -87,16 +66,11 @@ if inp == PASSWORD :
         if inp == 'y':
             inp = getpass.getpass("Enter Password:\n")
             if inp == PASSWORD2:
-                with open(file_path, encoding='utf-8') as f:
-                    temp = f.read()
-                    temp = decode_password(temp)
-                    temp = temp.split()
-                if len(temp) >= 3:
-                    ACCOUNT_PASSWORD = temp[2]
-                else:
+                try:
+                    ACCOUNT_PASSWORD = get_password(2)
+                except:
                     print("ERROR_COULD_NOT_FIND_PASSWORD_")
-                    
-                ACCOUNT_USERNAME = '_i_need_therapy_2284'
+                    ACCOUNT_USERNAME = '_i_need_therapy_2284'
             else:
                 quit()
         else:
@@ -105,6 +79,7 @@ if inp == PASSWORD :
             ACCOUNT_PASSWORD = getpass.getpass("Enter your password:\n")
             os.system('cls')
         
+        os.system('cls')
         inp = input("Are you sure that you want to exicute this code?(y/n): ")
         inp = inp.lower()
         os.system('cls')
