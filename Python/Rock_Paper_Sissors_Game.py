@@ -22,8 +22,8 @@ while player > 0 or player <= 3:
 computer = random.choice("123")
 computer = int(computer)
 
-print('\n' + "Player choice: " + showChoice(player))
-print("Computer choice: " + showChoice(computer) + '\n')
+print(f"\n Player choice: {showChoice(player)}")
+print(f"Computer choice: {showChoice(computer)} \n")
 
 if player == 1 and computer == 3:
     print('You Win!')
