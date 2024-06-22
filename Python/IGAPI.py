@@ -1,44 +1,11 @@
 from instagrapi import Client
-from Encrypt_and_Decrypter import decoded_message as decode
+from Encrypt_and_Decrypter import get_password
 import os
 import getpass
 import time
 os.system('cls')
 
 file_path = r"E:\vscode\passwords.txt"
-  
-def get_password(num):
-    password = None
-    with open(file_path, encoding='utf-8') as f:
-        temp = f.read()
-        temp = decode(temp)
-        temp = temp.split()
-    if len(temp) >= 2:
-        password = temp[num]
-
-    return password
-
-def get_password2():
-    password = None
-    with open(file_path, encoding='utf-8') as f:
-        temp = f.read()
-        temp = decode(temp)
-        temp = temp.split()
-    if len(temp) >= 2:
-        password = temp[5]
-
-    return password
-
-def get_password3():
-    password = None
-    with open(file_path, encoding='utf-8') as f:
-        temp = f.read()
-        temp = decode(temp)
-        temp = temp.split()
-    if len(temp) >= 2:
-        password = temp[11]
-        
-    return password
 
 temp = get_password(2)
 print(get_password(2))
