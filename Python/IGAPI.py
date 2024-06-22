@@ -4,8 +4,6 @@ import os
 import getpass
 import time
 
-os.system('cls')
-
 temp = get_password(2)
 temp2 = get_password(5)
 temp3 = get_password(11)
@@ -15,6 +13,8 @@ PASSWORD2 = temp2
 PASSWORD3 = temp3
 
 if __name__ == "__main__":
+    
+    os.system('cls')
 
     inp = getpass.getpass("Enter File Password:\n")
 
