@@ -1,19 +1,6 @@
 {
     "files.associations": {
-        "Help": "cpp",
-        "lol": "cpp",
-        "test": "cpp",
-        "Tax calculator": "cpp",
-        "oooo": "cpp",
-        "l": "cpp",
-        "o": "cpp",
-        "Notes": "plaintext",
-        "p": "python",
-        "h": "cpp",
-        "pppp": "cpp",
-        "Tic Tac Toe Game": "cpp",
-        "Python Notes": "plaintext",
-        "iostream": "cpp"
+
     },
     "python.analysis.typeCheckingMode": "basic"
 }
