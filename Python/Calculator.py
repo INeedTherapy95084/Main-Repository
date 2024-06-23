@@ -1,6 +1,18 @@
 import os
 
-def Calculate(firstnum, op, secondnum):
+def get_num(no) -> int | str:
+    while True:
+        num = input(f"Enter the {no} number: \n")
+        if num == 'quit' or num == 'Quit':
+            return num
+        try:
+            num = int(num)
+            return num
+        except:
+            print("ERROR_INVALID_VALUE_\n")
+            continue
+
+def Calculate(firstnum, op, secondnum) -> int:
     if op == '+':
         result = firstnum + secondnum
     elif op == '-':
@@ -19,18 +31,9 @@ if __name__ == '__main__':
     while True:
         print("\n***************** CALCULATOR *****************\n")
 
-        while True:
-            firstnum = input("Enter the first number: \n")
-            if firstnum == 'quit' or firstnum == 'Quit':
-                break
-            try:
-                firstnum = int(firstnum)
-                break
-            except:
-                print("ERROR_INVALID_VALUE_\n")
-                continue
+        firstnum = get_num("first")
         if firstnum == 'quit' or firstnum == 'Quit':
-                break
+            break
 
         while True:
             op = input("Enter an operator (+, -, *, /): \n")
@@ -42,24 +45,18 @@ if __name__ == '__main__':
                 print("ERROR_INVALID_VALUE_\n")
                 continue
         if op == 'quit' or op == 'Quit':
-                break
+            break
             
-        while True:
-            secondnum = input("Enter the second number: \n")
-            if secondnum == 'quit' or secondnum == 'Quit':
-                break
-            try:
-                secondnum = int(secondnum)
-                if secondnum == 0 and op == '/':
-                    print("\nERROR: Division by zero is not allowed.\n")
-                    continue
-                else:
-                    break
-            except:
-                print("ERROR_INVALID_VALUE_\n")
+        while True:   
+            secondnum = get_num("second")
+            if secondnum == 0 and op == '/':
+                print("\nERROR: Division by zero is not allowed.\n")
                 continue
+            elif secondnum == 'quit' or secondnum == 'Quit':
+                    break
+            break
         if secondnum == 'quit' or secondnum == 'Quit':
-                break
+            break
 
         
 

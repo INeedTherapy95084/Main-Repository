@@ -18,7 +18,7 @@ KEY_OF_WORD = {'a': ['w', 'ぬ'], 'b': ['#', '('], 'c': ['р', '5'], 'd': ['O', 
                '|': ['ぎ', 'Д'], '}': ['и', 'V'], '~': ['t', '}'], '\\': ['b', '9'], '\n': ['い', 'л']}
 
 
-def create_key_to_code_decode():
+def create_key_to_code_decode() -> None:
     character_list = list('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+[{]}|;:",<.>?`~あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげごабвгдежзийклмнопрстуфхцчшщъыьэюяАБВГДЕЖЗИЙКЛМНОПРСТ')
     alphabet_code = {'a': [], 'b': [], 'c': [], 'd': [], 'e': [], 'f': [], 'g': [],
                           'h': [], 'i': [], 'j': [], 'k': [], 'l': [], 'm': [], 'n': [],
@@ -44,7 +44,7 @@ def create_key_to_code_decode():
     print(alphabet_code)
 
 
-def coded_message(message):
+def coded_message(message) -> str:
     try:
         word_list = list(message)
         coded_word = ""
@@ -57,7 +57,7 @@ def coded_message(message):
         print('\nERROR_\n')
         quit()
 
-def decoded_message(message):
+def decoded_message(message) -> str:
     try:
         coded_list = list(message)
         decoded_word = ""
@@ -71,7 +71,7 @@ def decoded_message(message):
         print('\nERROR_\n')
         quit()
 
-def code_file(file_path):
+def code_file(file_path) -> None:
     try:
         with open(file_path, encoding='utf-8') as file:
             txt_data = file.read()
@@ -89,7 +89,7 @@ def code_file(file_path):
         print('\nERROR_\n')
         quit()
     
-def decode_file(file_path):
+def decode_file(file_path)-> None:
     try:
         with open(file_path, encoding='utf-8') as f:
             txt_data = f.read()
@@ -104,7 +104,7 @@ def decode_file(file_path):
         quit()
     
 
-def get_password(num):
+def get_password(num) -> None:
     password = None
     with open(r"E:\vscode\passwords.txt", encoding='utf-8') as f:
         temp = f.read()

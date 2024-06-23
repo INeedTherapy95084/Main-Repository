@@ -10,12 +10,12 @@ text_speach.runAndWait()
 os.system('cls')
 
 
-def help():
+def help() -> None:
     print("\n/bye           = exit the program\n"
             "/clear         = clear terminal, /clr\n"
             "/help          = keyboard shortcuts list, /?\n")
     
-def ask(query):
+def ask(query) -> str | None:
     if query.lower() == '/help' or query.lower() == '/?':
         help() 
         return ''
@@ -34,15 +34,19 @@ def ask(query):
         return response
 
 
-while True: 
+def answer(text_speach) -> None: 
     query = input('>>  ')
     if query.lower() == '/bye':
         print("Goodbye, see you later.")
         text_speach.say("Goodbye, see you later.")
         text_speach.runAndWait()
         os.system('cls')
-        break
+        quit()
     answer = ask(query)
-    print(answer)
+    print(answer, '\n')
     text_speach.say(answer)
     text_speach.runAndWait()
+    
+if __name__ == '__main__':
+    while True:
+        answer(text_speach)
