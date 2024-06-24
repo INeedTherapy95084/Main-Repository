@@ -4,19 +4,19 @@ import os
 import getpass
 import time
 
-temp = get_password(2)
-temp2 = get_password(5)
-temp3 = get_password(11)
+temp: str | None = get_password(2)
+temp2: str | None = get_password(5)
+temp3: str | None = get_password(11)
 
-PASSWORD = temp
-PASSWORD2 = temp2
-PASSWORD3 = temp3
+PASSWORD: str | None = temp
+PASSWORD2: str | None = temp2
+PASSWORD3: str | None = temp3
 
 if __name__ == "__main__":
     
     os.system('cls')
 
-    inp = getpass.getpass("Enter File Password:\n")
+    inp: str = getpass.getpass("Enter File Password:\n")
 
     os.system('cls')
 
@@ -32,16 +32,16 @@ if __name__ == "__main__":
                 inp = getpass.getpass("Enter Password:\n")
                 if inp == PASSWORD2:
                     try:
-                        ACCOUNT_PASSWORD = get_password(2)
+                        ACCOUNT_PASSWORD: str = get_password(2)
                     except:
                         print("ERROR_COULD_NOT_FIND_PASSWORD_")
-                        ACCOUNT_USERNAME = '_i_need_therapy_2284'
+                        ACCOUNT_USERNAME: str = '_i_need_therapy_2284'
                 else:
                     quit()
             else:
-                ACCOUNT_USERNAME = input("Enter your IG username:\n")
+                ACCOUNT_USERNAME: str = input("Enter your IG username:\n")
                 os.system('cls')
-                ACCOUNT_PASSWORD = getpass.getpass("Enter your password:\n")
+                ACCOUNT_PASSWORD: str = getpass.getpass("Enter your password:\n")
                 os.system('cls')
             
             os.system('cls')

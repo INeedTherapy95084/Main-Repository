@@ -2,16 +2,16 @@ import smtplib
 import os
 os.system('cls')
 
-u_email = input("Please enter your Gmail address: ")
+u_email: str = input("Please enter your Gmail address: ")
 os.system('cls')
-reciver_email = input("Please enter the reciving Gmail address: ")
+reciver_email: str = input("Please enter the reciving Gmail address: ")
 os.system('cls')
-subject = input("Please enter the Eamil subject: ")
+subject: str = input("Please enter the Eamil subject: ")
 os.system('cls')
-body = input("Please enter the Email body: \n")
+body: str = input("Please enter the Email body: \n")
 os.system('cls')
 
-text = f"Subject: {subject}\n\n{body}"
+text: str = f"Subject: {subject}\n\n{body}"
 
 try:
     server = smtplib.SMTP('smtp.gmail.com', 587)

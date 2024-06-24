@@ -1,8 +1,8 @@
 import os
 
-def get_num(no) -> int | str:
+def get_num(no: int | float | str) -> int | str:
     while True:
-        num = input(f"Enter the {no} number: \n")
+        num: int | str = input(f"Enter the {no} number: \n")
         if num == 'quit' or num == 'Quit':
             return num
         try:
@@ -13,6 +13,8 @@ def get_num(no) -> int | str:
             continue
 
 def Calculate(firstnum: int | float, op: str, secondnum: int | float ) -> int | float:
+    result: int | float = 0
+    
     if op == '+':
         result = firstnum + secondnum
     elif op == '-':
@@ -31,12 +33,12 @@ if __name__ == '__main__':
     while True:
         print("\n***************** CALCULATOR *****************\n")
 
-        firstnum = get_num("first")
+        firstnum: int | str = get_num("first")
         if firstnum == 'quit' or firstnum == 'Quit':
             break
 
         while True:
-            op = input("Enter an operator (+, -, *, /): \n")
+            op: str = input("Enter an operator (+, -, *, /): \n")
             if op == 'quit' or op == 'Quit':
                 break
             elif op == '+' or op == '-' or op == '*' or op == '/':
@@ -48,7 +50,7 @@ if __name__ == '__main__':
             break
             
         while True:   
-            secondnum = get_num("second")
+            secondnum: int | str = get_num("second")
             if secondnum == 0 and op == '/':
                 print("\nERROR: Division by zero is not allowed.\n")
                 continue
@@ -58,7 +60,7 @@ if __name__ == '__main__':
         if secondnum == 'quit' or secondnum == 'Quit':
             break
 
-        Result = Calculate(firstnum, op, secondnum) # type: ignore
+        Result: int | float = Calculate(firstnum, op, secondnum) # type: ignore
 
         print(f"\n{Result = }", )
 

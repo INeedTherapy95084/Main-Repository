@@ -1,10 +1,10 @@
-numbers = []
+numbers: list[int | float] = []
 
 while True:
-    inp = input("Enter a number: \n")
+    inp: int | str = input("Enter a number: \n")
     if inp.lower() == "done":
         break
-    value = int(inp)
+    value: int = int(inp)
     numbers.append(value)
-avg = sum(numbers) / len(numbers)
+avg: int | float = sum(numbers) / len(numbers)
 print("The avrage of the entered values is ", avg)

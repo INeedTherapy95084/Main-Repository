@@ -3,16 +3,15 @@ import os
 
 os.system('cls')
 
-rand_num = random.randint(1, 100)
+rand_num: int = random.randint(1, 100)
 
-guess = None
-no_guess = 0
+no_guess: int = 0
 
 print("******* GUESSING THE NUMBER GAME *******\n")
 
 while guess != rand_num:
     while True:
-        guess = input("Guess the number(1-100): \n")
+        guess: str | int = input("Guess the number(1-100): \n")
         try:
             guess = int(guess)
             break

@@ -15,7 +15,7 @@ def help() -> None:
             "/clear         = clear terminal, /clr\n"
             "/help          = keyboard shortcuts list, /?\n")
     
-def ask(query) -> str | None:
+def ask(query: str) -> str | None:
     if query.lower() == '/help' or query.lower() == '/?':
         help() 
         return ''
@@ -35,14 +35,14 @@ def ask(query) -> str | None:
 
 
 def answer(text_speach) -> None: 
-    query = input('>>  ')
+    query: str = input('>>  ')
     if query.lower() == '/bye':
         print("Goodbye, see you later.")
         text_speach.say("Goodbye, see you later.")
         text_speach.runAndWait()
         os.system('cls')
         quit()
-    answer = ask(query)
+    answer: str | None = ask(query)
     print(answer, '\n')
     text_speach.say(answer)
     text_speach.runAndWait()
