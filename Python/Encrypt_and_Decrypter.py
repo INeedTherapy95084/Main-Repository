@@ -44,7 +44,7 @@ def create_key_to_code_decode() -> None:
     print(alphabet_code)
 
 
-def coded_message(message) -> str:
+def coded_message(message: str) -> str:
     try:
         word_list = list(message)
         coded_word = ""
@@ -57,7 +57,7 @@ def coded_message(message) -> str:
         print('\nERROR_\n')
         quit()
 
-def decoded_message(message) -> str:
+def decoded_message(message: str) -> str:
     try:
         coded_list = list(message)
         decoded_word = ""
@@ -71,7 +71,7 @@ def decoded_message(message) -> str:
         print('\nERROR_\n')
         quit()
 
-def code_file(file_path) -> None:
+def code_file(file_path: str) -> None:
     try:
         with open(file_path, encoding='utf-8') as file:
             txt_data = file.read()
@@ -89,7 +89,7 @@ def code_file(file_path) -> None:
         print('\nERROR_\n')
         quit()
     
-def decode_file(file_path)-> None:
+def decode_file(file_path: str)-> None:
     try:
         with open(file_path, encoding='utf-8') as f:
             txt_data = f.read()
@@ -104,7 +104,7 @@ def decode_file(file_path)-> None:
         quit()
     
 
-def get_password(num) -> None:
+def get_password(num: int) -> str | None:
     password = None
     with open(r"E:\vscode\passwords.txt", encoding='utf-8') as f:
         temp = f.read()

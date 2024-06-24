@@ -3,12 +3,12 @@ import random
 
 os.system('cls')
 
-def showChoice(x) -> str | None:
+def showChoice(x: int) -> str | None:
     choices = {1: "Rock", 2: "Paper", 3: "Sissors"}
     
     return choices.get(x)
 
-def check_winner(player, computer) -> bool:
+def check_winner(player: int, computer: int) -> bool:
     if player == 1 and computer == 3:
         print('You Win!\n')
         return True
