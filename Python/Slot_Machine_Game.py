@@ -1,7 +1,7 @@
 import random
 import os
 
-wallet = 5000000
+wallet = 5_000_000
 MAX_LINES = 3
 MIN_BET = 1
 
@@ -53,7 +53,7 @@ def check_winnings(columns, lines, bet, values):
 def deposit(wallet):
     os.system('cls')
     while True:
-        amount = input(f"Please enter the amount you want to deposit(Your wallet: ${wallet}):\n$")
+        amount = input(f"Please enter the amount you want to deposit(Your wallet: ${wallet:,}):\n$")
         if amount.isdigit():
             amount = int(amount)
             if wallet >= amount:
@@ -63,7 +63,7 @@ def deposit(wallet):
                 else:
                     print("ERROR: Please enter an amount larger than 0")
             else:
-                print(f"You don't have that kind of money, you have ${wallet} in your wallet")
+                print(f"You don't have that kind of money, you have ${wallet:,} in your wallet")
         else:
             print("ERROR: The amount you want to deposit is invalid")
 
@@ -89,7 +89,7 @@ def get_bet(balance):
             if MIN_BET <= amount <= balance:
                 break
             else:
-                print(f"ERROR: Please enter an amount larger than ${MIN_BET} and less than your balance ${balance}")
+                print(f"ERROR: Please enter an amount larger than ${MIN_BET} and less than your balance ${balance:,}")
         else:
             print("ERROR: The amount you want to bet is invalid")
     os.system('cls')
@@ -117,7 +117,7 @@ def main(balance, wallet):
         while True:
             total_bet = bet * lines
             if total_bet > balance:
-                print(f"You don't have enough balance to bet that amount, your balance is ${balance}")
+                print(f"You don't have enough balance to bet that amount, your balance is ${balance:,}")
                 U_inp = input("""
                     Enter 1 to re-deposit
                     Enter 2 to change the line amount
@@ -144,18 +144,18 @@ def main(balance, wallet):
                     quit()
             else:
                 break
-        print(f"You are betting ${bet} on {lines} lines, Total bet is equal to: ${total_bet}")
+        print(f"You are betting ${bet:,} on {lines} lines, Total bet is equal to: ${total_bet:,}")
         balance -= total_bet
         slots = slot_machine_spin(ROWS, COLS, symbols)
         printSlotMachine(slots)
         winnings, winning_lines = check_winnings(slots, lines, bet, symbols)
-        print(f"You won ${winnings}.")
+        print(f"You won ${winnings:,}.")
         winning_lines = int(*winning_lines)
         if winning_lines >= 1:
             print("You won on lines:", winning_lines)
         balance += winnings
-        print(f"Your current balance is ${balance}")
-        print(f"You have ${wallet} left in your wallet")
+        print(f"Your current balance is ${balance:,}")
+        print(f"You have ${wallet:,} left in your wallet")
         if wallet == 0 and balance == 0:
             print("You ran out of money because you played too much, now get out")
             break

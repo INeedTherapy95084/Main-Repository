@@ -58,8 +58,8 @@ if __name__ == '__main__':
         if secondnum == 'quit' or secondnum == 'Quit':
             break
 
-        
+        Result = Calculate(firstnum, op, secondnum)
 
-        print("\nResult:", Calculate(firstnum, op, secondnum))
+        print(f"\n{Result = }", )
 
     print("\n**********************************************")
