@@ -12,7 +12,7 @@ def get_num(no: int | float | str) -> int | str:
             print("ERROR_INVALID_VALUE_\n")
             continue
 
-def Calculate(firstnum: int | float, op: str, secondnum: int | float ) -> int | float:
+def Calculate(firstnum: int | float = 0, op: str = '+', secondnum: int | float = 0 ) -> int | float:
     result: int | float = 0
     
     if op == '+':
@@ -62,6 +62,6 @@ if __name__ == '__main__':
 
         Result: int | float = Calculate(firstnum, op, secondnum) # type: ignore
 
-        print(f"\n{Result = }", )
+        print(f"\n{Result = :,}")
 
     print("\n**********************************************")

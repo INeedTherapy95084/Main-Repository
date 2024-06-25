@@ -1,8 +1,6 @@
 import os
 import random
 
-os.system('cls')
-
 def showChoice(x: int) -> str | None:
     choices: dict[int, str] = {1: "Rock", 2: "Paper", 3: "Sissors"}
     
@@ -28,18 +26,16 @@ def check_winner(player: int, computer: int) -> bool:
 score: int = 0
 
 while True:
+    os.system('cls')
     
-    player: int = 0
-
-    while player > 0 or player <= 3 or player == "exit" or  player == "Exit":
+    while True:
         playerChoice: str = input("Enter Your Choice:\n 1 For Rock\n 2 For Paper\n 3 For Sissors\n\n")
-        try:
-            if player == "exit" or  player == "Exit":
-                quit()
+
+        if playerChoice == "1" or playerChoice == "2" or playerChoice == "3":
             player: int = int(playerChoice)
             break
-        except:
-            print("\nINVALID_CHCOICE_ENTERED\n")
+        else:
+            print("\nINVALID_INPUT_\n")
             
 
     computer: int = int(random.choice("123"))
@@ -53,3 +49,15 @@ while True:
         score += 1
     
     print(f"Your Score: {score}\n")
+    
+    while True:
+        playAgain: str = input("\nDo you want to play again? (y/n):\n")
+        
+        if playAgain == "n" or  player == "N" or playAgain == "y" or  player == "Y":
+            if playAgain == "n" or  player == "N":
+                quit()
+            else:
+                break
+        else:
+            print("\nINVALID_INPUT_\n")
+            continue
