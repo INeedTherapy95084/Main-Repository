@@ -97,8 +97,8 @@ if __name__ == "__main__":
         choice: int | str = input("""What do you want to do?:
                         1. Encrypt a text that I input
                         2. Decrypt a text that I input
-                        3. Encrypt a file (Password required)
-                        4. Decrypt a file (Password required)\n\n""")
+                        3. Encrypt a file (File Path required)
+                        4. Decrypt a file (File Path required)\n\n""")
         if choice.isdigit():
             choice = int(choice)
             os.system('cls')
