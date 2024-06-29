@@ -87,5 +87,4 @@ if __name__ == "__main__":
 
 
                                 # cl.direct_send('How are you?', user_ids=[])  
-                                
                                 print('PROGRAM ENDED SUCSESSFULLY')
