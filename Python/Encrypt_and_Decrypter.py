@@ -2,20 +2,7 @@ import random
 import os
 import getpass
 
-KEY_OF_WORD: dict[str, list[str]] = {'a': ['w', 'ぬ'], 'b': ['#', '('], 'c': ['р', '5'], 'd': ['O', 'В'], 'e': ['m', 'う'], 'f': [')', 'у'], 'g': ['ち', 'z'],
-               'h': ['П', 'I'], 'i': ['?', 'よ'], 'j': ['に', 'H'], 'k': ['е', 'С'], 'l': ['か', 'Г'], 'm': ['る', 'E'], 'n': ['B', 'ほ'],
-               'o': ['н', 'も'], 'p': ['へ', 'ら'], 'q': ['>', 'i'], 'r': ['я', 'U'], 's': ['в', 'a'], 't': ['c', 'з'], 'u': ['З', 'м'],
-               'v': ['э', '2'], 'w': ['1', '['], 'x': ['ы', 'й'], 'y': ['む', 'ご'], 'z': ['n', 'ん'], ' ': ['G', 'さ'], 'A': ['y', 'k'],
-               'B': ['ぐ', 'と'], 'C': ['.', 'て'], 'D': ['а', 'ь'], 'E': ['X', 'g'], 'F': ['*', '0'], 'G': ['о', 'た'], 'H': ['D', 'こ'],
-               'I': ['f', 'の'], 'J': ['$', 'Е'], 'K': ['r', '4'], 'L': ['M', 'P'], 'M': ['г', 'W'], 'N': ['u', 'М'], 'O': ['Л', 'は'],
-               'P': ['ゆ', 'Ж'], 'Q': ['|', 'ч'], 'R': ['%', 'が'], 'S': ['8', 'К'], 'T': ['あ', 'ж'], 'U': ['ひ', 'Б'], 'V': ['6', '<'],
-               'W': ['す', 'く'], 'X': ['げ', 'ъ'], 'Y': ['お', 'ц'], 'Z': ['ろ', 'ふ'], '0': ['Q', 'п'], '1': ['わ', '^'], '2': ['Н', 'き'],
-               '3': ['り', 'え'], '4': ['み', 'щ'], '5': ['せ', 'J'], '6': ['х', 'Z'], '7': ['И', 'Т'], '8': ['A', 'б'], '9': ['3', 'K'],
-               '!': ['ま', 'Y'], '"': [':', 'を'], '#': ['{', '&'], '$': ['S', 'め'], '%': ['!', 'N'], '&': ['x', ']'], "'": ['そ', 'な'],
-               '(': ['О', 'R'], ')': ['れ', 'т'], '*': ['с', 'o'], '+': ['j', 'Й'], ',': ['F', 'к'], '-': ['д', ';'], '.': ['ф', 'け'],
-               '/': ['p', '_'], ':': ['や', '`'], ';': ['e', 'l'], '<': ['ю', 'd'], '=': ['q', '"'], '>': ['~', '+'], '?': ['А', 's'],
-               '@': [',', 'v'], '[': ['7', 'T'], ']': ['し', 'C'], '^': ['ш', 'h'], '_': ['Р', 'つ'], '`': ['=', 'ね'], '{': ['L', '-'],
-               '|': ['ぎ', 'Д'], '}': ['и', 'V'], '~': ['t', '}'], '\\': ['b', '9'], '\n': ['い', 'л']}
+KEY_OF_WORD: None # insert Key of word here
 
 
 def create_key_to_code_decode() -> None:
@@ -38,7 +25,7 @@ def create_key_to_code_decode() -> None:
     random.shuffle(character_list)
     index: int = 0
     for alphabet in alphabet_code:
-        for i in range(1,3):
+        for _ in range(1,3):
             alphabet_code[alphabet].append(character_list[index])
             index += 1
     print(alphabet_code)
@@ -102,23 +89,9 @@ def decode_file(file_path: str)-> None:
     except:
         print('\nERROR_\n')
         quit()
-    
-
-def get_password(num: int) -> str:
-    with open(r"E:\vscode\passwords.txt", encoding='utf-8') as f:
-        temp: str | list[str] = f.read()
-        temp = decoded_message(temp)
-        temp = temp.split()
-    if len(temp) >= 2:
-        password: str = temp[num]
-
-    return password
-
 
 if __name__ == "__main__":
     os.system('cls')
-    
-    PASSWORD = get_password(11)
     
     while True:
         choice: int | str = input("""What do you want to do?:
@@ -141,35 +114,17 @@ if __name__ == "__main__":
                     print(f"Decrypted message: {decrypt_message}")
                     break
                 elif choice == 3:
-                    entered_password: str = getpass.getpass("Enter password:\n")
-                    if entered_password == PASSWORD:
-                        os.system('cls')
                         file_path: str = input("Enter the file path of the file you want to encrypt:\n")
                         os.system('cls')
                         code_file(file_path)
                         break
-                    else:
-                        print("INVALID_PASSWORD_")
-                        break
                 elif choice == 4:
-                    entered_password: str = getpass.getpass("Enter password:\n")
-                    if entered_password == PASSWORD:
-                        os.system('cls')
                         file_path: str = input("Enter the file path of the file you want to decrypt:\n")
                         os.system('cls')
                         decode_file(file_path)
                         break
-                    else:
-                        print("INVALID_PASSWORD_")
-                        break
                 elif choice == 5:
-                    entered_password: str = getpass.getpass("Enter password:\n")
-                    if entered_password == PASSWORD:
-                        os.system('cls')
                         print(create_key_to_code_decode())
-                        break
-                    else:
-                        print("INVALID_PASSWORD_")
                         break
             else:
                 print("\nERROR_INVALID_INPUT_\n")
