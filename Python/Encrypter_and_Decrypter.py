@@ -2,11 +2,11 @@ import random
 import os
 import getpass
 
-KEY_OF_WORD: None # insert Key of word here
+KEY_OF_WORD = None # insert Key of word here
 
 
 def create_key_to_code_decode() -> None:
-    character_list: list[str] = ['abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+[{]}|;:",<.>?`~あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげごабвгдежзийклмнопрстуфхцчшщъыьэюяАБВГДЕЖЗИЙКЛМНОПРСТ']
+    character_list = list('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+[{]}|;:",<.>?`~あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげごабвгдежзийклмнопрстуфхцчшщъыьэюяАБВГДЕЖЗИЙКЛМНОПРСТ')
     alphabet_code: dict[str, list] = {'a': [], 'b': [], 'c': [], 'd': [], 'e': [], 'f': [], 'g': [],
                           'h': [], 'i': [], 'j': [], 'k': [], 'l': [], 'm': [], 'n': [],
                           'o': [], 'p': [], 'q': [], 'r': [], 's': [], 't': [], 'u': [],
@@ -23,11 +23,13 @@ def create_key_to_code_decode() -> None:
                           '|': [], '}': [], '~': [], '\\': [], '\n':[]}  
 
     random.shuffle(character_list)
-    index: int = 0
+    index = 0
     for alphabet in alphabet_code:
-        for _ in range(1,3):
+        for i in range(1,3):
+            print(alphabet_code[alphabet])
             alphabet_code[alphabet].append(character_list[index])
             index += 1
+            alphabet_code[alphabet]
     print(alphabet_code)
 
 
@@ -92,6 +94,11 @@ def decode_file(file_path: str)-> None:
 
 if __name__ == "__main__":
     os.system('cls')
+    
+    if KEY_OF_WORD == None:
+        create_key_to_code_decode()
+        print("Set this as 'KEY_OF_WORD' in the code to continue using this script.")
+        quit()
     
     while True:
         choice: int | str = input("""What do you want to do?:
