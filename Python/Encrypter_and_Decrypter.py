@@ -2,7 +2,7 @@ import random
 import os
 import getpass
 
-KEY_OF_WORD = None # insert Key of word here
+KEY_OF_WORD: dict[str, list] | None = None # insert Key of word here
 
 
 def create_key_to_code_decode() -> None:
@@ -95,7 +95,7 @@ if __name__ == "__main__":
     
     if KEY_OF_WORD == None:
         create_key_to_code_decode()
-        print("Set this as 'KEY_OF_WORD' in the code to continue using this script.")
+        print("\nSet this as 'KEY_OF_WORD' in the code to continue using this script.")
         quit()
     
     while True:
