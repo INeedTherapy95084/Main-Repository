@@ -2,7 +2,7 @@ import os
 
 def get_num(no: int | float | str) -> int | str:
     while True:
-        num= input(f"Enter the {no} number: \n")
+        num = input(f"Enter the {no} number: \n")
         if num == 'quit' or num == 'Quit':
             return num
         try:
