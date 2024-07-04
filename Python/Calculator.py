@@ -2,7 +2,7 @@ import os
 
 def get_num(no: int | float | str) -> int | str:
     while True:
-        num: int | str = input(f"Enter the {no} number: \n")
+        num= input(f"Enter the {no} number: \n")
         if num == 'quit' or num == 'Quit':
             return num
         try:
@@ -13,7 +13,7 @@ def get_num(no: int | float | str) -> int | str:
             continue
 
 def Calculate(firstnum: int | float = 0, op: str = '+', secondnum: int | float = 0 ) -> int | float:
-    result: int | float = 0
+    result= 0
     
     if op == '+':
         result = firstnum + secondnum
@@ -33,12 +33,12 @@ if __name__ == '__main__':
     while True:
         print("\n***************** CALCULATOR *****************\n")
 
-        firstnum: int | str = get_num("first")
-        if firstnum == 'quit' or firstnum == 'Quit':
+        num1 = get_num("first")
+        if num1 == 'quit' or num1 == 'Quit':
             break
 
         while True:
-            op: str = input("Enter an operator (+, -, *, /): \n")
+            op = input("Enter an operator (+, -, *, /): \n")
             if op == 'quit' or op == 'Quit':
                 break
             elif op == '+' or op == '-' or op == '*' or op == '/':
@@ -50,17 +50,17 @@ if __name__ == '__main__':
             break
             
         while True:   
-            secondnum: int | str = get_num("second")
-            if secondnum == 0 and op == '/':
+            num2: int | str = get_num("second")
+            if num2 == 0 and op == '/':
                 print("\nERROR: Division by zero is not allowed.\n")
                 continue
-            elif secondnum == 'quit' or secondnum == 'Quit':
+            elif num2 == 'quit' or num2 == 'Quit':
                     break
             break
-        if secondnum == 'quit' or secondnum == 'Quit':
+        if num2 == 'quit' or num2 == 'Quit':
             break
 
-        Result: int | float = Calculate(firstnum, op, secondnum) # type: ignore
+        Result = Calculate(num1, op, num2)
 
         print(f"\n{Result = :,}")
 
