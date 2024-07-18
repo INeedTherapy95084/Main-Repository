@@ -23,6 +23,10 @@ def Calculate(firstnum: float = 0, op: str = '+', secondnum: float = 0 ) -> floa
     elif op == '*':
         result = firstnum * secondnum
     elif op == '/':
+        if secondnum == 0 and op == '/':
+            print("\nERROR: Division by zero is not allowed.\n")
+            quit()
+        else:
             result = firstnum / secondnum
             
     return result
@@ -54,10 +58,7 @@ if __name__ == '__main__':
               
         num2: float | str = get_num("second")
         
-        if num2 == 0 and op == '/':
-            print("\nERROR: Division by zero is not allowed.\n")
-            continue
-        elif num2 == 'quit' or num2 == 'Quit':
+        if num2 == 'quit' or num2 == 'Quit':
             break
 
         Result = Calculate(num1, op, num2)
