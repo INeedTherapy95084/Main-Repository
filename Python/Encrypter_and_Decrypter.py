@@ -1,6 +1,5 @@
 import random
 import os
-import getpass
 
 KEY_OF_WORD: dict[str, list] | None = None # insert Key of word here
 
@@ -119,18 +118,18 @@ if __name__ == "__main__":
                     print(f"Decrypted message: {decrypt_message}")
                     break
                 elif choice == 3:
-                        file_path: str = input("Enter the file path of the file you want to encrypt:\n")
-                        os.system('cls')
-                        code_file(file_path)
-                        break
+                    file_path: str = input("Enter the file path of the file you want to encrypt:\n")
+                    os.system('cls')
+                    code_file(file_path)
+                    break
                 elif choice == 4:
-                        file_path: str = input("Enter the file path of the file you want to decrypt:\n")
-                        os.system('cls')
-                        decode_file(file_path)
-                        break
+                    file_path: str = input("Enter the file path of the file you want to decrypt:\n")
+                    os.system('cls')
+                    decode_file(file_path)
+                    break
                 elif choice == 5:
-                        print(create_key_to_code_decode())
-                        break
+                    print(create_key_to_code_decode())
+                    break
             else:
                 print("\nERROR_INVALID_INPUT_\n")
                 continue
