@@ -2,12 +2,8 @@ import os
 
 def get_num(no: float | str) -> float | str:
     while True:
-        num = input(f"Enter the {no} number: \n")
-        
-        if num == 'quit' or num == 'Quit':
-            return num
         try:
-            num = float(num)
+            num = float(input(f"Enter the {no} number: \n"))
             return num
         except:
             print("ERROR_INVALID_VALUE_\n")
