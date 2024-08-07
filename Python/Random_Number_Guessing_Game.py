@@ -7,7 +7,9 @@ rand_num: int = random.randint(1, 100)
 
 no_guess: int = 0
 
-print("******* GUESSING THE NUMBER GAME *******\n")
+print(f"\n{' GUESSING THE NUMBER GAME ':*^40}\n")
+
+guess = None
 
 while guess != rand_num:
     while True:
@@ -32,4 +34,4 @@ while guess != rand_num:
     
 print("\nCorrect! You guessed it in" , no_guess, "tries\n")
 
-print("****************************************")
+print(f"{"*":*^40}")

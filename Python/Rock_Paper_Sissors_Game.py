@@ -3,7 +3,6 @@ import random
 
 def showChoice(x: int) -> str | None:
     choices: dict[int, str] = {1: "Rock", 2: "Paper", 3: "Sissors"}
-    
     return choices.get(x)
 
 def check_winner(player: int, computer: int) -> bool:
@@ -27,6 +26,8 @@ score: int = 0
 
 while True:
     os.system('cls')
+    
+    print(f"{" ROCK PAPER SISSORS ":*^40}\n")
     
     while True:
         playerChoice: str = input("Enter Your Choice:\n 1 For Rock\n 2 For Paper\n 3 For Sissors\n\n")
@@ -55,6 +56,7 @@ while True:
         
         if playAgain == "n" or  player == "N" or playAgain == "y" or  player == "Y":
             if playAgain == "n" or  player == "N":
+                print(f"\n{"*":*^40}\n")
                 quit()
             else:
                 break
