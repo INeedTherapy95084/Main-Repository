@@ -1,28 +1,19 @@
 import random
 import os
+import string
 
 KEY_OF_WORD: dict[str, list] | None = None # insert Key of word here
 
 
 def create_key_to_code_decode() -> None:
     character_list = list('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+[{]}|;:",<.>?`~あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげごабвгдежзийклмнопрстуфхцчшщъыьэюяАБВГДЕЖЗИЙКЛМНОПРСТ')
-    alphabet_code: dict[str, list] = {'a': [], 'b': [], 'c': [], 'd': [], 'e': [], 'f': [], 'g': [],
-                          'h': [], 'i': [], 'j': [], 'k': [], 'l': [], 'm': [], 'n': [],
-                          'o': [], 'p': [], 'q': [], 'r': [], 's': [], 't': [], 'u': [],
-                          'v': [], 'w': [], 'x': [], 'y': [], 'z': [], ' ': [], 'A': [],
-                          'B': [], 'C': [], 'D': [], 'E': [], 'F': [], 'G': [], 'H': [],
-                          'I': [], 'J': [], 'K': [], 'L': [], 'M': [], 'N': [], 'O': [],
-                          'P': [], 'Q': [], 'R': [], 'S': [], 'T': [], 'U': [], 'V': [],
-                          'W': [], 'X': [], 'Y': [], 'Z': [], '0': [], '1': [], '2': [],
-                          '3': [], '4': [], '5': [], '6': [], '7': [], '8': [], '9': [],
-                          '!': [], '"': [], '#': [], '$': [], '%': [], '&': [], "'": [],
-                          '(': [], ')': [], '*': [], '+': [], ',': [], '-': [], '.': [],
-                          '/': [], ':': [], ';': [], '<': [], '=': [], '>': [], '?': [],
-                          '@': [], '[': [],  ']': [], '^': [], '_': [], '`': [],'{': [],
-                          '|': [], '}': [], '~': [], '\\': [], '\n':[]}  
+    
+    charecters: str = string.ascii_letters + string.digits + string.punctuation + ' ' + '\n'
+    alphabet_code: dict[str, list] = {charecter_list: [] for charecter_list in charecters}
 
     random.shuffle(character_list)
-    index = 0
+    index: int = 0
+    
     for alphabet in alphabet_code:
         for i in range(1,3):
             alphabet_code[alphabet].append(character_list[index])
