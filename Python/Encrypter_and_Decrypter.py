@@ -9,7 +9,7 @@ def create_key_to_code_decode() -> None:
     character_list = list('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+[{]}|;:",<.>?`~あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげごабвгдежзийклмнопрстуфхцчшщъыьэюяАБВГДЕЖЗИЙКЛМНОПРСТ')
     
     charecters: str = string.ascii_letters + string.digits + string.punctuation + ' ' + '\n'
-    alphabet_code: dict[str, list] = {charecter_list: [] for charecter_list in charecters}
+    alphabet_code: dict[str, list] = {charecter: [] for charecter in charecters}
 
     random.shuffle(character_list)
     index: int = 0
