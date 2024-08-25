@@ -9,7 +9,7 @@ def get_num(no: float | str) -> float | str:
             else:
                 num = float(num)
                 return num
-        except:
+        except ValueError:
             print("ERROR_INVALID_VALUE_\n")
             continue
 
