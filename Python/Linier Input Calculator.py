@@ -38,7 +38,7 @@ inp = input('Enter an Equation:\n').split()
 while True:
     if iIndex + 1 == len(inp):
         break
-    if is_convetable_to_float(inp[iIndex]) and is_convetable_to_float(inp[iIndex + 2]):
+    elif is_convetable_to_float(inp[iIndex]) and is_convetable_to_float(inp[iIndex + 2]):
         if iIndex == 0:
             answer = calculate(inp[sIndex], float(inp[iIndex]), float(inp[iIndex + 2]))
         else:
