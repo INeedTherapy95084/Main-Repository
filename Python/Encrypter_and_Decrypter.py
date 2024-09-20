@@ -15,7 +15,7 @@ def create_key_to_code_decode() -> None:
     index: int = 0
     
     for alphabet in alphabet_code:
-        for i in range(1,3):
+        for i in range(0,3):
             alphabet_code[alphabet].append(character_list[index])
             index += 1
     print(alphabet_code)
