@@ -5,10 +5,11 @@ import string
 KEY_OF_WORD: dict[str, list] | None = None # insert Key of word here
 
 
-def create_key_to_code_decode() -> None:
-    character_list = list('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+[{]}|;:",<.>?`~あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげごабвгдежзийклмнопрстуфхцчшщъыьэюяАБВГДЕЖЗИЙКЛМНОПРСТ')
+def create_key() -> None:
+    extra_characters = list('あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげごабвгдежзийклмнопрстуфхцчшщъыьэюяАБВГДЕЖЗИЙКЛМНОПРСТ')
     
     charecters: str = string.ascii_letters + string.digits + string.punctuation + ' ' + '\n'
+    character_list = charecters + extra_characters
     alphabet_code: dict[str, list] = {charecter: [] for charecter in charecters}
 
     random.shuffle(character_list)
@@ -84,7 +85,7 @@ if __name__ == "__main__":
     os.system('cls')
     
     if KEY_OF_WORD == None:
-        create_key_to_code_decode()
+        create_key()
         print("\nSet this as 'KEY_OF_WORD' in the code to continue using this script.")
         quit()
     
@@ -119,7 +120,7 @@ if __name__ == "__main__":
                     decode_file(file_path)
                     break
                 elif choice == 5:
-                    print(create_key_to_code_decode())
+                    print(create_key())
                     break
             else:
                 print("\nERROR_INVALID_INPUT_\n")
