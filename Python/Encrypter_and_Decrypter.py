@@ -6,10 +6,10 @@ KEY_OF_WORD: dict[str, list] | None = None # insert Key of word here
 
 
 def create_key() -> None:
-    extra_characters = list('あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげごабвгдежзийклмнопрстуфхцчшщъыьэюяАБВГДЕЖЗИЙКЛМНОПРСТ')
+    extra_characters = 'あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげごабвгдежзийклмнопрстуфхцчшщъыьэюяАБВГДЕЖЗИЙКЛМНОПРСТ'
     
     charecters: str = string.ascii_letters + string.digits + string.punctuation + ' ' + '\n'
-    character_list = charecters + extra_characters
+    character_list = list(charecters + extra_characters)
     alphabet_code: dict[str, list] = {charecter: [] for charecter in charecters}
 
     random.shuffle(character_list)
