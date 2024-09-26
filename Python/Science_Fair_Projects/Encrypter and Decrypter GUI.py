@@ -12,6 +12,8 @@ BUTTON_BG_COLOR = "#1f4c82"
 BUTTON_FG_COLOR = "#FFFFFF"
 ENTRY_BG_COLOR = "#1E1E1E"
 ENTRY_FG_COLOR = "#FFFFFF"
+FONT = "Cascadia Code font"
+FONT_SIZE = 13
 
 def create_key():
     global KEY_OF_WORD
@@ -22,7 +24,6 @@ def create_key():
     character_list = list(characters)
     random.shuffle(character_list)
 
-    # Create a key as a dictionary of lists
     KEY_OF_WORD = {char: [character_list[i], character_list[i + len(characters) // 2]] for i, char in enumerate(characters) if i < len(character_list) // 2}
 
     key_status_label.config(text="Key Status: Key is SET", fg="#00FF00")
@@ -122,10 +123,8 @@ def encrypt_file():
             with open(file_path, 'r', encoding='utf-8') as file:
                 content = file.read()
 
-            # Encrypt the file content
             encrypted_content = coded_message(content)
 
-            # Overwrite the original file with the encrypted content
             with open(file_path, 'w', encoding='utf-8') as file:
                 file.write(encrypted_content)
 
@@ -142,10 +141,8 @@ def decrypt_file():
             with open(file_path, 'r', encoding='utf-8') as file:
                 content = file.read()
 
-            # Decrypt the file content
             decrypted_content = decoded_message(content)
 
-            # Overwrite the original file with the decrypted content
             with open(file_path, 'w', encoding='utf-8') as file:
                 file.write(decrypted_content)
 
@@ -182,13 +179,14 @@ key_status_label.pack(pady=5)
 input_label = tk.Label(root, text="Input Text:", fg=TEXT_COLOR, bg=BG_COLOR)
 input_label.pack()
 
-input_text_box = scrolledtext.ScrolledText(root, wrap=tk.WORD, width=70, height=10, bg=ENTRY_BG_COLOR, fg=ENTRY_FG_COLOR, insertbackground=TEXT_COLOR)
+input_text_box = scrolledtext.ScrolledText(root, wrap=tk.WORD, width=70, height=8, bg=ENTRY_BG_COLOR, fg=ENTRY_FG_COLOR, insertbackground=TEXT_COLOR, font=(FONT, FONT_SIZE))
+
 input_text_box.pack(pady=10)
 
 output_label = tk.Label(root, text="Output Text:", fg=TEXT_COLOR, bg=BG_COLOR)
 output_label.pack()
 
-output_text_box = scrolledtext.ScrolledText(root, wrap=tk.WORD, width=70, height=10, bg=ENTRY_BG_COLOR, fg=ENTRY_FG_COLOR, insertbackground=TEXT_COLOR)
+output_text_box = scrolledtext.ScrolledText(root, wrap=tk.WORD, width=70, height=8, bg=ENTRY_BG_COLOR, fg=ENTRY_FG_COLOR, insertbackground=TEXT_COLOR, font=(FONT, FONT_SIZE))
 output_text_box.pack(pady=10)
 
 button_frame2 = tk.Frame(root, bg=BG_COLOR)

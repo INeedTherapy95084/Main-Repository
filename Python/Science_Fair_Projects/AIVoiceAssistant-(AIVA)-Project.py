@@ -132,14 +132,22 @@ def input_query():
             "/clear, /cls, /clr  = Clear terminal\n"
             "/help, /?             = Keyboard shortcuts list\n\n")
         result_text.yview_moveto(1.0)
+    elif query.lower() == "who is your creator?":
+        result_text.insert(tk.END,"\n\nShayan Afraz\n\n")
+        result_text.yview_moveto(1.0)
+        root.after(100, lambda: speak_text("Shayan Afraz"))
+    elif query.lower() == "introduce yourself":
+        result_text.insert(tk.END,"\n\nHello, My name is AIVA (AI Voice Assistant), Im a LLM (Large Language Model) made by Shayan Afraz,\n I run fully without a Internet Connection and I serve many purposes and can   \n\n")
+        result_text.yview_moveto(1.0)
+        root.after(100, lambda: speak_text("Shayan Afraz"))
     else:  
         status_label.config(text="Loading response...")
         response = ask_ollama(query)
         result_text.insert(tk.END, f"\n\n {AI_name}:  {response}\n\n")
         result_text.yview_moveto(1.0)
         root.after(100, lambda: speak_text(response))
-        
-    status_label.config(text="Press the ic button to start recording.")
+    
+    status_label.config(text="Press the Mic button to start recording.")
         
         
 def ask_ollama(query):
@@ -190,7 +198,7 @@ result_text.grid(column=0, row=0, padx=20, pady=20, columnspan=3, sticky="nsew")
 ask_button = tk.Button(root, text="Enter", font=("MS Sans Serif", 12), command=input_query, relief="raised", bd=2, bg="#C0C0C0")
 ask_button.grid(column=1, row=2, padx=10, pady=10, sticky="n")
 
-status_label = tk.Label(root, text="Press the mic button to start recording.", font=("MS Sans Serif", 12),
+status_label = tk.Label(root, text="Press the Mic button to start recording.", font=("MS Sans Serif", 12),
                         bg="#f0f0f0", fg="black", relief="sunken", bd=2)
 status_label.grid(column=0, row=3, padx=10, pady=10, columnspan=3, sticky="n")
 
