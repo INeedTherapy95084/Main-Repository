@@ -132,14 +132,18 @@ def input_query():
             "/clear, /cls, /clr  = Clear terminal\n"
             "/help, /?             = Keyboard shortcuts list\n\n")
         result_text.yview_moveto(1.0)
-    elif query.lower() == "who is your creator?":
+    elif ["your creator", "your maker", "the person who made you", "your developer", "the person who developed you"] in query.lower():
+        time.sleep(2)
         result_text.insert(tk.END,"\n\nShayan Afraz\n\n")
         result_text.yview_moveto(1.0)
         root.after(100, lambda: speak_text("Shayan Afraz"))
-    elif query.lower() == "introduce yourself":
-        result_text.insert(tk.END,"\n\nHello, My name is AIVA (AI Voice Assistant), Im a LLM (Large Language Model) made by Shayan Afraz,\n I run fully without a Internet Connection and I serve many purposes and can   \n\n")
+    elif "introduce yourself" in query.lower():
+        time.sleep(2)
+        result_text.insert(tk.END,"\n\nAIVA: Hello, My name is AIVA (AI Voice Assistant), Im a LLM (Large Language Model) made by Shayan Afraz,\n"
+                           "I run fully without a Internet Connection and I serve many purposes, You can ask me anything and I'll try my best to answer them for You\n"
+                           "Would You like to ask any questions?\n\n")
         result_text.yview_moveto(1.0)
-        root.after(100, lambda: speak_text("Shayan Afraz"))
+        root.after(100, lambda: speak_text("Hello, My name is Aiva, Im a Large Language Model made by Shayan Afraz, I run fully without a Internet Connection and I serve many purposes, You can ask me anything and I'll try my best to answer them for You, Would You like to ask any questions?"))
     else:  
         status_label.config(text="Loading response...")
         response = ask_ollama(query)
