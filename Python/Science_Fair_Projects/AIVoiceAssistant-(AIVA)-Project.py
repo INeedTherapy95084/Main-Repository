@@ -29,12 +29,12 @@ audio_frames_list = []
 query = ""  
 response = ""
 AI_name = "AIVA"
-is_exiting = False
+
 
 
 def stop_recording():
     global is_recording, audio_stream
-    mic_button.config(image=mic_off_photo)
+    mic_button.config(image=mic_off_photo) 
     is_recording = False
     if audio_stream:
         audio_stream.stop_stream()
@@ -43,10 +43,6 @@ def stop_recording():
     if audio_frames_list:
         save_audio("command.wav")
 
-    if not is_exiting:
-        status_label.config(text="Recording finished.")
-        time.sleep(5)
-        status_label.config(text="Press the Mic button to start speaking.")
 
 def toggle_recording():
     global is_recording
@@ -117,35 +113,39 @@ def save_audio(filename="command.wav"):
 def input_query():
     global query
     global response
-    global is_exiting
 
     all_text = result_text.get("1.0", tk.END).strip()
+
     last_line = all_text.splitlines()[-1]
+    
     query = last_line
 
     if query.lower() in ["/clr", "/cls", "/clear"]:
         clear_text_box()
-        if not is_exiting:
-            status_label.config(text="Text box cleared.")
+        status_label.config(text="Text box cleared.")
     elif query.lower() == "/bye":
         hi_and_bye('bye')
+        return 
     elif query.lower() in ["/help", '/?']:
-        result_text.insert(tk.END, "\n\n/bye                   = Exit the program\n"
+        result_text.insert(tk.END,"\n\n/bye                   = Exit the program\n"
             "/clear, /cls, /clr  = Clear terminal\n"
             "/help, /?             = Keyboard shortcuts list\n\n")
         result_text.yview_moveto(1.0)
-    else:
-        if not is_exiting: 
-            status_label.config(text="Loading response...")
+    elif any(phrase in query.lower() for phrase in ["your creator", "your maker", "the person who made you", "your developer", "the person who developed you"]):
+        change_label("Loading respose...")
+        time.sleep(2)
+        speak_text("Shayan Afraz")
+    elif "introduce yourself" in query.lower():
+        change_label("Loading respose...")
+        time.sleep(2)
+        result_text.insert(tk.END, f"\n\n{AI_name}: Hello, My name is AIVA (AI Voice Assistant), Im a LLM (Large Language Model) made by Shayan Afraz,\nI run fully without a Internet Connection and I serve many purposes, You can ask me anything and I'll try my best to answer them for You,\nWould You like to ask any questions?\n\n")
         root.update_idletasks()
-
+        just_say("Hello, My name is Aiva, Im a Large Language Model made by Shayan Afraz, I run fully without a Internet Connection and I serve many purposes, You can ask me anything and I'll try my best to answer them for You, Would You like to ask any questions?")
+    else:  
+        change_label("Loading respose...")
         response = ask_ollama(query)
-        result_text.insert(tk.END, f"\n\n {AI_name}:  {response}\n\n")
-        result_text.yview_moveto(1.0)
-        root.after(100, lambda: speak_text(response))
-
-    if not is_exiting: 
-        status_label.config(text="Press the Mic button to start speaking.")
+        speak_text(response)
+    change_label("Press the Mic button to start speaking.")
         
         
 def ask_ollama(query):
@@ -158,24 +158,27 @@ def ask_ollama(query):
 
 def hi_and_bye(text):
     global AI_name
-    global is_exiting 
-
     if text == 'hi':
         result_text.insert(tk.END, f"{AI_name}: Hello, How may I assist you today? Type (/help) or (/?) to get further assistance\n\n")
-        speak_text("Hello, How may I assist you today?")
+        just_say("Hello, How may I assist you today?")
     else:
-        is_exiting = True
-        status_label.config(text="Exiting application...")
-        root.update_idletasks()
-
-        result_text.insert(tk.END, f"\n\n{AI_name}: Goodbye, See you later!\n\n")
-        result_text.yview_moveto(1.0)
+        change_label("Exiting aplication...")
         speak_text("Goodbye, See you later!")
-        root.after(2000, quit)
+        root.after(2000, quit)  
 
-def speak_text(text):
+def just_say(text):
     engine.say(text)
     engine.runAndWait()
+
+def speak_text(text):
+        result_text.insert(tk.END, f"\n\n{AI_name}:  {text}\n\n")
+        result_text.yview_moveto(1.0)
+        root.update_idletasks()
+        just_say(text)
+    
+def change_label(msg):
+    status_label.config(text=msg)
+    root.update_idletasks()
 
 
 def clear_text_box():
