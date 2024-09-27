@@ -29,12 +29,12 @@ audio_frames_list = []
 query = ""  
 response = ""
 AI_name = "AIVA"
-
+is_exiting = False
 
 
 def stop_recording():
     global is_recording, audio_stream
-    mic_button.config(image=mic_off_photo) 
+    mic_button.config(image=mic_off_photo)
     is_recording = False
     if audio_stream:
         audio_stream.stop_stream()
@@ -43,6 +43,10 @@ def stop_recording():
     if audio_frames_list:
         save_audio("command.wav")
 
+    if not is_exiting:
+        status_label.config(text="Recording finished.")
+        time.sleep(5)
+        status_label.config(text="Press the Mic button to start speaking.")
 
 def toggle_recording():
     global is_recording
@@ -113,45 +117,35 @@ def save_audio(filename="command.wav"):
 def input_query():
     global query
     global response
-    
-    status_label.config(text="Query submitted")
+    global is_exiting
 
     all_text = result_text.get("1.0", tk.END).strip()
-
     last_line = all_text.splitlines()[-1]
-    
     query = last_line
 
     if query.lower() in ["/clr", "/cls", "/clear"]:
         clear_text_box()
-        status_label.config(text="Text box cleared.")
+        if not is_exiting:
+            status_label.config(text="Text box cleared.")
     elif query.lower() == "/bye":
         hi_and_bye('bye')
     elif query.lower() in ["/help", '/?']:
-        result_text.insert(tk.END,"\n\n/bye                   = Exit the program\n"
+        result_text.insert(tk.END, "\n\n/bye                   = Exit the program\n"
             "/clear, /cls, /clr  = Clear terminal\n"
             "/help, /?             = Keyboard shortcuts list\n\n")
         result_text.yview_moveto(1.0)
-    elif ["your creator", "your maker", "the person who made you", "your developer", "the person who developed you"] in query.lower():
-        time.sleep(2)
-        result_text.insert(tk.END,"\n\nShayan Afraz\n\n")
-        result_text.yview_moveto(1.0)
-        root.after(100, lambda: speak_text("Shayan Afraz"))
-    elif "introduce yourself" in query.lower():
-        time.sleep(2)
-        result_text.insert(tk.END,"\n\nAIVA: Hello, My name is AIVA (AI Voice Assistant), Im a LLM (Large Language Model) made by Shayan Afraz,\n"
-                           "I run fully without a Internet Connection and I serve many purposes, You can ask me anything and I'll try my best to answer them for You\n"
-                           "Would You like to ask any questions?\n\n")
-        result_text.yview_moveto(1.0)
-        root.after(100, lambda: speak_text("Hello, My name is Aiva, Im a Large Language Model made by Shayan Afraz, I run fully without a Internet Connection and I serve many purposes, You can ask me anything and I'll try my best to answer them for You, Would You like to ask any questions?"))
-    else:  
-        status_label.config(text="Loading response...")
+    else:
+        if not is_exiting: 
+            status_label.config(text="Loading response...")
+        root.update_idletasks()
+
         response = ask_ollama(query)
         result_text.insert(tk.END, f"\n\n {AI_name}:  {response}\n\n")
         result_text.yview_moveto(1.0)
         root.after(100, lambda: speak_text(response))
-    
-    status_label.config(text="Press the Mic button to start recording.")
+
+    if not is_exiting: 
+        status_label.config(text="Press the Mic button to start speaking.")
         
         
 def ask_ollama(query):
@@ -164,15 +158,20 @@ def ask_ollama(query):
 
 def hi_and_bye(text):
     global AI_name
+    global is_exiting 
+
     if text == 'hi':
         result_text.insert(tk.END, f"{AI_name}: Hello, How may I assist you today? Type (/help) or (/?) to get further assistance\n\n")
         speak_text("Hello, How may I assist you today?")
     else:
+        is_exiting = True
+        status_label.config(text="Exiting application...")
+        root.update_idletasks()
+
         result_text.insert(tk.END, f"\n\n{AI_name}: Goodbye, See you later!\n\n")
         result_text.yview_moveto(1.0)
         speak_text("Goodbye, See you later!")
-        root.after(2000, quit)  
-
+        root.after(2000, quit)
 
 def speak_text(text):
     engine.say(text)
@@ -202,8 +201,8 @@ result_text.grid(column=0, row=0, padx=20, pady=20, columnspan=3, sticky="nsew")
 ask_button = tk.Button(root, text="Enter", font=("MS Sans Serif", 12), command=input_query, relief="raised", bd=2, bg="#C0C0C0")
 ask_button.grid(column=1, row=2, padx=10, pady=10, sticky="n")
 
-status_label = tk.Label(root, text="Press the Mic button to start recording.", font=("MS Sans Serif", 12),
-                        bg="#f0f0f0", fg="black", relief="sunken", bd=2)
+status_label = tk.Label(root, text="Press the Mic button to start speaking.", font=("MS Sans Serif", 12),
+                        bg="#f0f0f0", fg="black", relief="sunken", bd=2, width=35)
 status_label.grid(column=0, row=3, padx=10, pady=10, columnspan=3, sticky="n")
 
 mic_off_photo = ImageTk.PhotoImage(Image.open("mic_off.png").resize((50, 50)))
