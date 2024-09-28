@@ -19,18 +19,44 @@ print("Loading application...")
 # Initialization
 engine = pyttsx3.init()
 engine.setProperty('rate', 150)
-model = Model(model_name="vosk-model-en-us-0.22")
-recognizer = KaldiRecognizer(model, 16000)
-recognizer.SetWords(True)
 is_recording = False
 audio_queue = queue.Queue()
 audio_stream = None
 audio_frames_list = []  
 query = ""  
 response = ""
-AI_name = "A.I.V.A."
+AI_name = "A.I.V.A "
+
+import threading
+
+def lazy_initialization(splash):
+    mic_button.config(state=tk.DISABLED)
+    status_label.config(text="Initializing VOSK_Speech_Recognition...")
+    threading.Thread(target=initialize_speech_recognition, args=(splash,)).start()
+
+def show_splash_screen():
+    splash = tk.Toplevel(root)
+    splash.geometry("300x200")
+    splash.title("Loading...")
+    label = tk.Label(splash, text="Initializing, please wait...", font=("MS Sans Serif", 14))
+    label.pack(expand=True)
+
+    root.after(100, lambda: lazy_initialization(splash))
 
 
+def initialize_speech_recognition(splash):
+    global model, recognizer
+    model = Model(model_name="vosk-model-en-us-0.22")
+    recognizer = KaldiRecognizer(model, 16000)
+    recognizer.SetWords(True)
+    
+    splash.destroy()
+    change_label("Initialization complete. Ready to record.")
+    print("vosk initilizion complete")
+    mic_button.config(state=tk.NORMAL)
+    time.sleep(3)
+    change_label("Press the Mic button to start speaking.")
+    
 
 def stop_recording():
     global is_recording, audio_stream
@@ -154,7 +180,10 @@ def input_query():
         root.update_idletasks()
         root.after(100, lambda: say_text(response))
 
-    change_label("Press the Mic button to start speaking.")
+    if mic_button.cget("state") == "disabled":
+        change_label("Initializing VOSK_Speech_Recognition...")
+    else:
+        change_label("Press the Mic button to start speaking.")
         
         
 def ask_ollama(query):
@@ -225,5 +254,7 @@ mic_button = tk.Button(root, image=mic_off_photo, command=toggle_recording, reli
 mic_button.grid(column=1, row=4, padx=10, pady=10, sticky="n")
 
 hi_and_bye('hi')
+
+show_splash_screen()
 
 root.mainloop()
