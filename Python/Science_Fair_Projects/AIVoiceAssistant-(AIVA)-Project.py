@@ -28,7 +28,7 @@ audio_stream = None
 audio_frames_list = []  
 query = ""  
 response = ""
-AI_name = "AIVA"
+AI_name = "A.I.V.A."
 
 
 
@@ -124,7 +124,7 @@ def input_query():
         clear_text_box()
         change_label("Text box cleared.")
         time.sleep(1)
-        result_text.insert(tk.END, f"{AI_name}: Hello, How may I assist you today? Type (/help) or (/?) to get further assistance\n\n")
+        result_text.insert(tk.END, f"{AI_name}: Hello, How may I assist you today? Type (/help) or (/?) to get further assistance.\n\n")
     elif query.lower() == "/bye":
         hi_and_bye('bye')
         return 
@@ -151,7 +151,8 @@ def input_query():
         response = ask_ollama(query)
         result_text.insert(tk.END, f"\n\n{AI_name}:  {response}\n\n")
         result_text.yview_moveto(1.0)
-        root.after(1, lambda: say_text(response))
+        root.update_idletasks()
+        root.after(100, lambda: say_text(response))
 
     change_label("Press the Mic button to start speaking.")
         
@@ -167,14 +168,19 @@ def ask_ollama(query):
 def hi_and_bye(text):
     global AI_name
     if text == 'hi':
-        result_text.insert(tk.END, f"{AI_name}: Hello, How may I assist you today? Type (/help) or (/?) to get further assistance\n\n")
+        result_text.insert(tk.END, f"{AI_name}: Hello, How may I assist you today? Type (/help) or (/?) to get further assistance.\n\n")
         say_text("Hello, How may I assist you today?")
     else:
         change_label("Exiting aplication...")
         result_text.insert(tk.END, f"\n\n{AI_name}: Goodbye, See you later!\n\n")
         result_text.yview_moveto(1.0)
-        root.after(10, lambda: say_text("Goodbye, See you later!"))
-        root.after(200, quit)  
+        root.after(100, lambda: say_text("Goodbye, See you later!"))
+        root.update_idletasks()
+        root.after(200, lambda:quit())
+        
+def quit_loop():
+    root.quit()
+    quit()
 
 def say_text(text):
     engine.say(text)
