@@ -122,7 +122,9 @@ def input_query():
 
     if query.lower() in ["/clr", "/cls", "/clear"]:
         clear_text_box()
-        status_label.config(text="Text box cleared.")
+        change_label("Text box cleared.")
+        time.sleep(1)
+        result_text.insert(tk.END, f"{AI_name}: Hello, How may I assist you today? Type (/help) or (/?) to get further assistance\n\n")
     elif query.lower() == "/bye":
         hi_and_bye('bye')
         return 
@@ -134,17 +136,23 @@ def input_query():
     elif any(phrase in query.lower() for phrase in ["your creator", "your maker", "the person who made you", "your developer", "the person who developed you"]):
         change_label("Loading respose...")
         time.sleep(2)
-        speak_text("Shayan Afraz")
+        result_text.insert(tk.END, f"\n\n{AI_name}: Shayan Afraz\n\n")
+        result_text.yview_moveto(1.0)
+        root.after(100, lambda: say_text("Shayan Afraz"))
+
     elif "introduce yourself" in query.lower():
         change_label("Loading respose...")
         time.sleep(2)
         result_text.insert(tk.END, f"\n\n{AI_name}: Hello, My name is AIVA (AI Voice Assistant), Im a LLM (Large Language Model) made by Shayan Afraz,\nI run fully without a Internet Connection and I serve many purposes, You can ask me anything and I'll try my best to answer them for You,\nWould You like to ask any questions?\n\n")
         root.update_idletasks()
-        just_say("Hello, My name is Aiva, Im a Large Language Model made by Shayan Afraz, I run fully without a Internet Connection and I serve many purposes, You can ask me anything and I'll try my best to answer them for You, Would You like to ask any questions?")
+        say_text("Hello, My name is Aiva, Im a Large Language Model made by Shayan Afraz, I run fully without a Internet Connection and I serve many purposes, You can ask me anything and I'll try my best to answer them for You, Would You like to ask any questions?")
     else:  
         change_label("Loading respose...")
         response = ask_ollama(query)
-        speak_text(response)
+        result_text.insert(tk.END, f"\n\n{AI_name}:  {response}\n\n")
+        result_text.yview_moveto(1.0)
+        root.after(1, lambda: say_text(response))
+
     change_label("Press the Mic button to start speaking.")
         
         
@@ -160,22 +168,18 @@ def hi_and_bye(text):
     global AI_name
     if text == 'hi':
         result_text.insert(tk.END, f"{AI_name}: Hello, How may I assist you today? Type (/help) or (/?) to get further assistance\n\n")
-        just_say("Hello, How may I assist you today?")
+        say_text("Hello, How may I assist you today?")
     else:
         change_label("Exiting aplication...")
-        speak_text("Goodbye, See you later!")
-        root.after(2000, quit)  
+        result_text.insert(tk.END, f"\n\n{AI_name}: Goodbye, See you later!\n\n")
+        result_text.yview_moveto(1.0)
+        root.after(10, lambda: say_text("Goodbye, See you later!"))
+        root.after(200, quit)  
 
-def just_say(text):
+def say_text(text):
     engine.say(text)
     engine.runAndWait()
 
-def speak_text(text):
-        result_text.insert(tk.END, f"\n\n{AI_name}:  {text}\n\n")
-        result_text.yview_moveto(1.0)
-        root.update_idletasks()
-        just_say(text)
-    
 def change_label(msg):
     status_label.config(text=msg)
     root.update_idletasks()
