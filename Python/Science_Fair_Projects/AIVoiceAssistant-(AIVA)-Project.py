@@ -19,6 +19,8 @@ print("Loading application...")
 # Initialization
 engine = pyttsx3.init()
 engine.setProperty('rate', 150)
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[0].id)   
 is_recording = False
 audio_queue = queue.Queue()
 audio_stream = None
@@ -116,6 +118,7 @@ def record_speech():
                 if text:
                     result_text.tag_delete("partial")
                     result_text.insert(tk.END, text + "\n")
+                    result_text.yview_moveto(1.0)
             else:
                 partial_result = recognizer.PartialResult()
         
