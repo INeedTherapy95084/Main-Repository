@@ -34,7 +34,7 @@ def Calculate(firstnum: float = 0, op: str = '+', secondnum: float = 0 ) -> floa
 if __name__ == '__main__':
     
     os.system('cls')
-    
+
     while True:
         print(f"\n{' CALCULATOR ':*^30}\n")
 
