@@ -3,7 +3,6 @@ import time
 import pyautogui as gui
 import keyboard
 
-
 os.system('cls')
 
 print("Autoclicker is running...")
