@@ -1,5 +1,6 @@
 #include <iostream>
 #include <windows.h>
+#include <stdio.h>
 
 int main()
 {
@@ -15,12 +16,14 @@ int main()
   [in]                LPSTARTUPINFOW        lpStartupInfo,
   [out]               LPPROCESS_INFORMATION lpProcessInformation
 );*/
-STARTUPINFOW si = { 0 };
-PROCESS_INFORMATION pi = { 0 };
-    if(!CreateProcessW(L"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Accessories\\Notepad.lnk", NULL, NULL, NULL, FALSE, BELOW_NORMAL_PRIORITY_CLASS, NULL, NULL, &si, &pi)){
-        printf("(-) Failed to Create Process, Error: %ld", GetLastError());
-        return EXIT_FAILURE;
-    };
+  STARTUPINFO si = {0};
+  PROCESS_INFORMATION pi = {0};
 
+  if (!CreateProcessW(L"C:\\Users\\IT\\Downloads\\rufus-4.6.exe", NULL, NULL, FALSE, 0, NULL, NULL, si, pi)) {
+    printf("(-) Failed to create process, error: %ld", GetLastError());
     return 0;
+  };
+
+  printf("(+) process started! pid: %ld", pi.dwProcessId);
+  return 0;
 }

@@ -2,7 +2,7 @@ import os
 import random
 
 def showChoice(x: int) -> str | None:
-    choices: dict[int, str] = {1: "Rock", 2: "Paper", 3: "Sissors"}
+    choices: dict[int, str] = {1: "Rock 🪨", 2: "Paper 📝", 3: "Sissors ✂️"}
     return choices.get(x)
 
 def check_winner(player: int, computer: int) -> bool:
@@ -52,9 +52,10 @@ while True:
     print(f"Your Score: {score}\n")
     
     while True:
+        
         playAgain: str = input("\nDo you want to play again? (y/n):\n")
         
-        if playAgain == "n" or  player == "N" or playAgain == "y" or  player == "Y":
+        if playAgain == "n" or  player == "N" or playAgain == "y" or  player == "Y" or player == " ":
             if playAgain == "n" or  player == "N":
                 print(f"\n{"*":*^40}\n")
                 quit()
